@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn giản</title>
+</head>
+<style>
+    body {
+        border: 15px solid #d4fcfd;
+    }
+    .form {
+        display: flex;
+        padding-left: 200px;
+    }
+    .form input {
+        margin-bottom: 10px;
+    }
+    .label{
+        font-weight: bold;
+    }
+    .left {
+        text-align-last: right;
+        padding-right: 10px;
+        color: cornflowerblue;
+        margin-bottom: 10px;
+    }
+    .right input[type=text] {
+        margin-bottom: 15px;
+    }
+    .label2 {
+        color: darkorange;
+    }
+</style>
+<body>
+<h1 style="color: white; background: darkorange; text-align: center;margin-top: 10px;font-family: 'Lucida Console', 'Courier New', monospace;">SỞ THÍCH CỦA BẠN</h1>
+<form class="form">
+    <div class="left">
+        <label class="label" for="yourname">
+            Họ và tên
+        </label>
+        <br>
+        <br>
+        <label class="label" for="email">
+            Email
+        </label>
+        <br>
+        <br>
+        <label class="label">
+            Sở thích
+        </label>
+    </div>
+    <div class="right">
+        <label class="label2">
+            <input style="border-left: 3px solid black; border-top: 3px solid black" type="text" name="yourname" id="yourname" size="30">
+            <br>
+            <input style="border-left: 3px solid black; border-top: 3px solid black;" type="text" name="email" id="email" size="25">
+            <br>
+            <div class="hobby">
+                <input type="checkbox" name="hobby">Thể thao
+                <input type="checkbox" name="hobby">Âm nhạc
+                <input type="checkbox" name="hobby">Đọc sách
+                <br>
+                <input type="checkbox" name="hobby">Lướt web
+                <input type="checkbox" name="hobby">Chơi game
+                <input type="checkbox" name="hobby">Điện ảnh
+                <br>
+                <input type="checkbox" name="hobby">Du lịch
+            </div>
+            <br>
+            <input style="border-bottom: 3px solid black;border-right: 3px solid black;" type="submit" value="Gửi thông tin">
+            <input style="border-bottom: 3px solid black;border-right: 3px solid black;" type="reset" value="Nhập lại">
+        </label>
+    </div>
+    </form>
+</body>
+</html>

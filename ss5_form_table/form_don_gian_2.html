@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Đơn Giản</title>
+  <style>
+    body {
+      padding-left: 10px;
+    }
+    form {
+      background: #fffda9;
+      border: 2px solid #fffda9;
+      padding-left: 10px;
+      width: 500px;
+    }
+    form .bottom {
+      display: flex;
+    }
+    .left {
+      padding-right: 10px;
+    }
+    .left label {
+      display: block;
+    }
+    .right {
+      padding-bottom: 50px;
+    }
+    .right input {
+      margin-bottom: 10px;
+      border: 1px solid black;
+    }
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      color: #0735ff;
+      background: #d4fdd6;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="top">
+      <h1>ĐĂNG KÝ HỌC VIÊN</h1>
+    </div>
+    <div class="bottom">
+      <div class="left">
+        <label for="fullname">Họ và tên</label> <br>
+        <label for="dateofbirth">Ngày sinh</label> <br>
+        <label>Giới tính</label> <br>
+        <label style="margin-top: 10px;margin-bottom: 10px" for="address">Địa chỉ</label> <br>
+        <label>Lớp</label> <br>
+        <label for="email">Email</label> <br>
+        <label for="phone">Điện thoại</label>
+      </div>
+      <div class="right">
+        <input type="text" name="fullname" id="fullname" size="30"> <br>
+        <input type="text" name="dateofbirth" id="dateofbirth"> <br>
+        <input style="margin-top: 15px" type="radio" name="gender">Nam
+        <input type="radio" name="gender">Nữ <br>
+        <textarea style="margin-bottom: 10px; margin-top: 15px" name="address" id="address" cols="25" rows="2"></textarea> <br>
+        <select style="margin-bottom: 10px">
+          <option>-Chọn lớp-</option>
+          <option>JV101</option>
+          <option>JV102</option>
+        </select> <br>
+        <input style="margin-top: 8px" type="email" name="email" id="email"> <br>
+        <input style="margin-top: 9px" type="tel" name="phone" id="phone"> <br>
+        <div class="button">
+          <button style="border: 2px solid black;" type="submit">Đăng ký</button>
+          <button style="border: 2px solid black;" type="reset">Nhập lại</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
