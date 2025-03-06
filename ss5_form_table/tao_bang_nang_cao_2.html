@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lịch</title>
+</head>
+<style>
+    table {
+        width: 50%;
+        text-align: center;
+    }
+    .vietnamese {
+        border-right: 1px solid white;
+        border-bottom: 1px solid white;
+        border-left: 1px solid white;
+        border-top: 1px solid white;
+        color: white;
+        /*bắt đầu từ cột 2 đến kề cuối*/
+        th:nth-child(n+2):nth-last-child(n+2) {
+            background: #ffb300;
+        }
+    }
+    .english {
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+        border-top: 1px solid white;
+    }
+    .english th:first-child {
+        color: red;
+    }
+    tr {
+        border: 2px solid grey;
+    }
+    .vietnamese th:first-child{
+        background: red;
+        color: white;
+    }
+    .vietnamese th:last-child{
+        background: #0735ff;
+        color: white;
+    }
+    /*cột đầu tiên tô đỏ*/
+    th:first-child,
+    td:first-child {
+        color: red;
+    }
+    /*cột cuối tô xanh*/
+    th:last-child,
+    td:last-child {
+        color: #0735ff;
+    }
+    .number-container {
+        font-size: 15px;  /* Kích thước số lớn */
+        position: relative;
+        display: inline-block;
+    }
+
+    .small-number {
+        font-size: 8px;  /* Kích thước số nhỏ */
+        position: absolute;
+        bottom: 0;
+        color: black;
+    }
+    h1 {
+        text-align: center;
+        color: #0735ff;
+    }
+</style>
+<body>
+<h1>Tháng 10-October</h1>
+<table style="border-collapse: collapse;margin-left: 400px" border="1">
+    <tr class="vietnamese">
+        <th>C.Nhật</th>
+        <th>T.Hai</th>
+        <th>T.Ba</th>
+        <th>T.Tư</th>
+        <th>T.Năm</th>
+        <th>T.Sáu</th>
+        <th>T.Bảy</th>
+    </tr>
+    <tr class="english">
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <div class="number-container">
+                1
+                <span class="small-number">13</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                2
+                <span class="small-number">14</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                3
+                <span class="small-number">15</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="number-container">
+                4
+                <span class="small-number">16</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                5
+                <span class="small-number">17</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                6
+                <span class="small-number">18</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                7
+                <span class="small-number">19</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                8
+                <span class="small-number">20</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                9
+                <span class="small-number">21</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                10
+                <span class="small-number">22</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="number-container">
+                11
+                <span class="small-number">23</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                12
+                <span class="small-number">24</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                13
+                <span class="small-number">25</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                14
+                <span class="small-number">26</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                15
+                <span class="small-number">27</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                16
+                <span class="small-number">28</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                17
+                <span class="small-number">29</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="number-container">
+                18
+                <span class="small-number">1</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                19
+                <span class="small-number">2</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                20
+                <span class="small-number">3</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                21
+                <span class="small-number">4</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                22
+                <span class="small-number">5</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                23
+                <span class="small-number">6</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                24
+                <span class="small-number">7</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="number-container">
+                25
+                <span class="small-number">8</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                26
+                <span class="small-number">9</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                27
+                <span class="small-number">10</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                28
+                <span class="small-number">11</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                29
+                <span class="small-number">12</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                30
+                <span class="small-number">13</span>
+            </div>
+        </td>
+        <td>
+            <div class="number-container">
+                31
+                <span class="small-number">14</span>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
