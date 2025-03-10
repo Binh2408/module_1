@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính mở rộng</title>
+</head>
+<style>
+    div {
+        display: block;
+        padding-top: 10px;
+    }
+    button {
+        width: 100px;
+    }
+</style>
+<body>
+    <fieldset style="width: 28%; text-align: center">
+        <legend style="text-align: center; font-weight: bold">Máy tính</legend>
+        <input size="56px" type="text" id="duLieu">
+        <span id="input"></span>
+        <div>
+            <button onclick="chiaLayDu()">%</button>
+            <button onclick="moNgoac()">(</button>
+            <button onclick="dongNgoac()">)</button>
+            <button onclick="xoaTatCa()">AC</button>
+        </div>
+        <div>
+            <button onclick="tinhThapPhan()">1/x</button>
+            <button onclick="tinhMu()">x^2</button>
+            <button onclick="tinhCanBacHai()">√x</button>
+            <button onclick="chiaHaiSo()">/</button>
+        </div>
+        <div>
+            <button onclick="nhap7()">7</button>
+            <button onclick="nhap8()">8</button>
+            <button onclick="nhap9()">9</button>
+            <button onclick="nhanHaiSo()">X</button>
+        </div>
+        <div>
+            <button onclick="nhap4()">4</button>
+            <button onclick="nhap5()">5</button>
+            <button onclick="nhap6()">6</button>
+            <button onclick="truHaiSo()">-</button>
+        </div>
+        <div>
+            <button onclick="nhap1()">1</button>
+            <button onclick="nhap2()">2</button>
+            <button onclick="nhap3()">3</button>
+            <button onclick="congHaiSo()">+</button>
+        </div>
+        <div>
+            <button onclick="dauAm()">+/-</button>
+            <button onclick="nhap0()">0</button>
+            <button onclick="chamPhay()">.</button>
+            <button onclick="tinhToan()">=</button>
+        </div>
+    </fieldset>
+    <script>
+        function nhap0() {
+            document.getElementById("duLieu").value += "0";
+        }
+        function nhap1() {
+            document.getElementById("duLieu").value += "1";
+        }
+        function nhap2() {
+            document.getElementById("duLieu").value += "2";
+        }
+        function nhap3() {
+            document.getElementById("duLieu").value += "3";
+        }
+        function nhap4() {
+            document.getElementById("duLieu").value += "4";
+        }
+        function nhap5() {
+            document.getElementById("duLieu").value += "5";
+        }
+        function nhap6() {
+            document.getElementById("duLieu").value += "6";
+        }
+        function nhap7() {
+            document.getElementById("duLieu").value += "7";
+        }
+        function nhap8() {
+            document.getElementById("duLieu").value += "8";
+        }
+        function nhap9() {
+            document.getElementById("duLieu").value += "9";
+        }
+        function xoaTatCa() {
+            document.getElementById("duLieu").value = "";
+        }
+        function tinhToan() {
+            // document.getElementById("duLieu").value = "=";
+            let input = document.getElementById("duLieu");
+            try {
+                input.value = eval(input.value);
+            } catch (e) {
+                input.value = "Lỗi";
+            }
+        }
+        function congHaiSo() {
+            document.getElementById("duLieu").value += "+";
+        }
+        function truHaiSo() {
+            document.getElementById("duLieu").value += "-";
+        }
+        function chiaHaiSo() {
+            document.getElementById("duLieu").value += "/";
+        }
+        function nhanHaiSo() {
+            document.getElementById("duLieu").value += "*";
+        }
+        function chiaLayDu() {
+            document.getElementById("duLieu").value += "%";
+        }
+        function moNgoac() {
+            document.getElementById("duLieu").value += "(";
+        }
+        function dongNgoac() {
+            document.getElementById("duLieu").value += ")";
+        }
+        function tinhMu() {
+            let input = document.getElementById("duLieu");
+            if (input.value !== "") {
+                input.value = Math.pow(parseFloat(input.value), 2);
+            }
+        }
+        function tinhCanBacHai() {
+            let input = document.getElementById("duLieu");
+            let value = parseFloat(input.value);
+            if (value > 0) {
+                input.value = Math.sqrt(value);
+            } else {
+                input.value = "Lỗi";
+            }
+        }
+        function tinhThapPhan() {
+            let input = document.getElementById("duLieu");
+            let value = parseFloat(input.value);
+            if (value !== 0) {
+                input.value = 1/value;
+            } else {
+                input.value = "Lỗi"
+            }
+        }
+        function chamPhay() {
+            document.getElementById("duLieu").value += ".";
+        }
+        function dauAm() {
+            let input = document.getElementById("duLieu");
+            if (input.value !== "") {
+                if (input.value[0] === "-") {
+                    //substring(1) cắt bỏ kí tự đầu tiên
+                    input.value = input.value.substring(1);
+                } else {
+                    input.value = "-" + input.value;
+                }
+            } else {
+                document.getElementById("duLieu").value += "-";
+            }
+        }
+
+    </script>
+</body>
+</html>
