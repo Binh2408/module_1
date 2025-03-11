@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số cân nặng của cơ thể</title>
+</head>
+<body>
+  <fieldset style="text-align: center">
+    <h1>Tính chỉ số cân nặng</h1>
+    <span>
+    Nhập cân nặng: (kg)
+    <input type="number" id="canNang">
+  </span> <br> <br>
+    <span>
+    Nhập chiều cao: (m)
+    <input type="number" id="chieuCao">
+  </span> <br> <br>
+    <button type="button" onclick="kiemTra()">Kiểm tra</button> <br>
+    <p id="ketQua"></p>
+  </fieldset>
+  <script>
+    function kiemTra() {
+      let canNang = parseFloat(document.getElementById("canNang").value);
+      let chieuCao = parseFloat(document.getElementById("chieuCao").value);
+      if(isNaN(canNang) || isNaN(chieuCao)){
+        document.getElementById("ketQua").innerText = "Chưa nhập số liệu";
+        return;
+      }
+      let ketQua = canNang / (chieuCao*chieuCao);
+      let tinhTrang = "";
+      if (ketQua < 18.5) {
+        tinhTrang = "thiếu cân";
+      } else if (ketQua < 25.0) {
+        tinhTrang = "bình thường";
+      } else if (ketQua < 30.0) {
+        tinhTrang = "thừa cân";
+      } else {
+        tinhTrang = "béo phì";
+      }
+      document.getElementById("ketQua").innerHTML = `Chỉ số BMI là: ${ketQua.toFixed(2)}. Bạn <strong>${tinhTrang}</strong>` ;
+    }
+  </script>
+
+</body>
+</html>

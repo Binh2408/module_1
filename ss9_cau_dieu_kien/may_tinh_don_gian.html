@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+</head>
+<style>
+  fieldset {
+    text-align: center;
+    border: 3px solid black;
+    width: 180px;
+  }
+  button {
+    width: 40px;
+    margin-top: 10px;
+    color: #0735ff;
+  }
+  input {
+    width: 165px;
+    text-align: end;
+    color: #0735ff;
+  }
+</style>
+<body>
+  <fieldset>
+    <input type="text" id="duLieu">
+    <br>
+    <div>
+      <button onclick="nhap('1')">1</button>
+      <button onclick="nhap('2')">2</button>
+      <button onclick="nhap('3')">3</button>
+      <button onclick="nhap('+')">+</button>
+    </div>
+    <div>
+      <button onclick="nhap('4')">4</button>
+      <button onclick="nhap('5')">5</button>
+      <button onclick="nhap('6')">6</button>
+      <button onclick="nhap('-')">-</button>
+    </div>
+    <div>
+      <button onclick="nhap('7')">7</button>
+      <button onclick="nhap('8')">8</button>
+      <button onclick="nhap('9')">9</button>
+      <button onclick="nhap('*')">X</button>
+    </div>
+    <div>
+      <button onclick="xoa()">C</button>
+      <button onclick="nhap('0')">0</button>
+      <button onclick="ketQua()">=</button>
+      <button onclick="nhap('/')">/</button>
+    </div>
+  </fieldset>
+  <script>
+    function nhap(value) {
+      document.getElementById("duLieu").value += value;
+    }
+    function ketQua() {
+      //document.getElementById("duLieu").value = eval(document.getElementById("duLieu").value);
+      let input = document.getElementById("duLieu");
+      try {
+        input.value = eval(input.value);
+      } catch (e) {
+        input.value = "Lỗi";
+      }
+    }
+    function xoa() {
+      document.getElementById("duLieu").value = "";
+    }
+
+  </script>
+</body>
+</html>

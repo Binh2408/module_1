@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 2-Bài 9</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập cạnh đầu tiên: ");
+    let b = +prompt("Nhập cạnh thứ hai: ");
+    let c = +prompt("Nhập cạnh thứ ba: ");
+    //cách gọn
+    if(a > 0 && b > 0 && c > 0 && a + b > c && b + c > 0 && a + c > 0) {
+        alert(`${a},${b},${c} là cạnh của một tam giác`);
+    } else {
+        alert(`${a},${b},${c} không phải là cạnh của một tam giác`);
+    }
+    // if (a > 0 && b > 0 && c > 0) {
+    //     if (a + b > c) {
+    //         if (b + c > c) {
+    //             if (a + c > b) {
+    //                 alert(`${a},${b},${c} là cạnh của một tam giác`);
+    //             } else {
+    //                 alert(`${a},${b},${c} không phải là cạnh của một tam giác`);
+    //             }
+    //         } else {
+    //             alert(`${a},${b},${c} không phải là cạnh của một tam giác`);
+    //         }
+    //     } else {
+    //         alert(`${a},${b},${c} không phải là cạnh của một tam giác`);
+    //     }
+    // } else {
+    //     alert(`${a},${b},${c} không phải là cạnh của một tam giác`);
+    // }
+
+
+</script>
+</body>
+</html>

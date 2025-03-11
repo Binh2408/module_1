@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 1-Bài 2</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Bài 2</legend>
+    <span>
+      Nhập tuổi:
+      <input type="number" id="soTuoi">
+    </span>
+    <button onclick="kiemTra()">Kiểm tra</button>
+  </fieldset>
+  <script>
+    function kiemTra() {
+      let tuoi = +document.getElementById("soTuoi").value;
+      if (tuoi >= 15) {
+        alert("Học sinh đủ điều kiện vào học lớp 10")
+      }else {
+        alert("Học sinh không đủ điều kiện vào học lớp 10")
+      }
+    }
+  </script>
+</body>
+</html>

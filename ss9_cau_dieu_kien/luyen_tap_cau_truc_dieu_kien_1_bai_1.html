@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 1-Bài 1</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Bài 1</legend>
+    <span>
+      Nhập a:
+      <input type="number" id="soDauTien">
+    </span>
+    <span>
+      Nhập b:
+      <input type="number" id="soThuHai">
+    </span>
+    <button onclick="kiemTra()">Kiểm tra</button>
+  </fieldset>
+  <script>
+    function kiemTra() {
+      let soDauTien = +document.getElementById("soDauTien").value;
+      let soThuHai = +document.getElementById("soThuHai").value;
+      if (soDauTien % soThuHai == 0) {
+        alert("a chia hết cho b");
+      }else {
+        alert("a không chia hết cho b");
+      }
+    }
+  </script>
+</body>
+</html>

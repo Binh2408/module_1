@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 1-Bài 4</title>
+</head>
+<style>
+  input{
+    margin-left: 10px;
+  }
+</style>
+<body>
+  <fieldset>
+    <legend>Bài 4</legend>
+    <span>
+      Nhập số đầu tiên:
+      <input type="number" id="soDauTien">
+    </span><br>
+    <span>
+      Nhập số thứ hai:
+      <input type="number" id="soThuHai">
+    </span> <br>
+    <span>
+      Nhập số thứ ba:
+      <input type="number" id="soThuBa">
+    </span><br>
+    <button onclick="kiemTra()">Kiểm tra</button>
+  </fieldset>
+  <script>
+    function kiemTra() {
+      let soDauTien = +document.getElementById("soDauTien").value;
+      let soThuHai = +document.getElementById("soThuHai").value;
+      let soThuBa = +document.getElementById("soThuBa").value;
+      if (soDauTien == "" && soThuHai == "" && soThuBa == "") {
+        alert("Nhập lại các số vào");
+        return;
+      }
+      if (soDauTien > soThuHai && soDauTien > soThuBa) {
+        alert(`${soDauTien} là số lớn nhất`);
+      } else if (soThuHai > soThuBa) {
+        alert(`${soThuHai} là số lớn nhất`);
+      } else {
+        alert(`${soThuBa} là số lớn nhất`)
+      }
+    }
+  </script>
+</body>
+</html>

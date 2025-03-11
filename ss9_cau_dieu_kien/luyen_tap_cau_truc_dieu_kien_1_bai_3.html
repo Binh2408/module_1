@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 1-Bài 3</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Bài 4</legend>
+    <span>
+      Nhập một số nguyên bất kì:
+      <input type="number" id="soNguyen">
+    </span>
+    <button onclick="kiemTra()">Kiểm tra</button>
+  </fieldset>
+  <script>
+    function kiemTra() {
+      let a = +document.getElementById("soNguyen").value;
+      if (a > 0) {
+        alert("Lớn hơn 0");
+      } else if (a < 0) {
+        alert("Nhỏ hơn 0")
+      } else {
+        alert("Bằng 0")
+      }
+    }
+  </script>
+</body>
+</html>

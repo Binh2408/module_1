@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 2-Bài 10</title>
+</head>
+<body>
+    <script>
+        let soKWH = parseFloat(prompt("Nhập mức kWh tiêu thụ: "));
+        let tongTien = 0;
+        if (soKWH <= 50) {
+            tongTien = soKWH*1.728
+            alert(`Số tiền cần trả là: ${tongTien}`);
+        } else if (soKWH <= 100) {
+            tongTien = (50*1.728) + (soKWH-50)*2.014;
+            alert(`Số tiền cần trả là: ${tongTien}`);
+        } else if (soKWH <= 200) {
+            tongTien = (50*1.728) + (50*2.014) + (soKWH-100)*2.340;
+            alert(`Số tiền cần trả là: ${tongTien}`);
+        } else if (soKWH <= 300) {
+            tongTien = (50*1.728) + (50*2.014) + (100*2.340) + (soKWH-200)*2.615;
+            alert(`Số tiền cần trả là: ${tongTien}`);
+        } else if (soKWH <= 400) {
+            tongTien = (50*1.728) + (50*2.014) + (100*2.340) + (100*2.615) + (soKWH-300)*2.927;
+            alert(`Số tiền cần trả là: ${tongTien}`);
+        } else {
+            tongTien = (50*1.728) + (50*2.014) + (100*2.340) + (100*2.615) + (100*2.927) + (soKWH-400)*3.015;
+            alert(`Số tiền cần trả là: ${tongTien.toFixed(2)}`);
+        }
+    </script>
+</body>
+</html>

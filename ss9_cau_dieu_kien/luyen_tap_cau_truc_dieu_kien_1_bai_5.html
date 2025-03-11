@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 1-Bài 5</title>
+</head>
+<style>
+  span {
+    padding-top: 10px;
+  }
+  input{
+    margin-left: 20px;
+  }
+</style>
+<body>
+  <fieldset>
+    <legend>Bài 5</legend>
+    <span>
+      Nhập điểm bài kiểm tra:
+      <input type="number" id="diemKiemTra">
+    </span><br><br>
+    <span>
+      Nhập điểm thi giữa kỳ:
+      <input type="number" id="diemGiuaKy">
+    </span><br><br>
+    <span>
+      Nhập điểm thi cuối kỳ:
+      <input type="number" id="diemCuoiKy">
+    </span><br><br>
+    <button onclick="kiemTra()">Kiểm tra</button>
+  </fieldset>
+  <script>
+    function kiemTra() {
+      let diemKiemTra = +document.getElementById("diemKiemTra").value;
+      let diemGiuaKy = +document.getElementById("diemGiuaKy").value;
+      let diemCuoiKy = +document.getElementById("diemCuoiKy").value;
+      if (diemKiemTra == "" && diemGiuaKy == "" && diemCuoiKy == "") {
+        alert("vui lòng nhập lại điểm");
+        return;
+      }
+      let diemTrungBinh = (diemKiemTra+diemGiuaKy+diemCuoiKy)/3;
+      if(diemTrungBinh >= 8) {
+        alert("Học lực giỏi");
+      } else if (diemTrungBinh >=6.5) {
+        alert("Học lực khá");
+      } else if (diemTrungBinh >=5) {
+        alert("Học lực trung bình");
+      } else {
+        alert("Học lực yếu");
+      }
+    }
+  </script>
+</body>
+</html>

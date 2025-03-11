@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 1-Bài 7</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Bài 7</legend>
+    <span>
+      Nhập số phút:
+      <input type="number" id="soPhut">
+    </span><br>
+    <button onclick="kiemTra()">Kiểm tra</button>
+  </fieldset>
+  <script>
+    function kiemTra() {
+      const phiCoDinh = 25000;
+      let soPhut = document.getElementById("soPhut").value;
+      if(soPhut <= 50){
+        let chiPhi = phiCoDinh + (soPhut*600);
+        alert(`Cước của bạn sau ${soPhut} là: ${chiPhi}`);
+      } else if (soPhut <= 200) {
+        let chiPhi = phiCoDinh + (50*600) + (soPhut-50)*400;
+        alert(`Cước của bạn sau ${soPhut} là: ${chiPhi}`);
+      } else {
+        let chiPhi = phiCoDinh + (50*600) + (150*400) + (soPhut-200)*200;
+        alert(`Cước của bạn sau ${soPhut} là: ${chiPhi}`);
+      }
+    }
+  </script>
+</body>
+</html>
