@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 2-Bài 12</title>
+</head>
+<body>
+    <script>
+        let soTienBanDau = parseFloat(prompt("Nhập số tiền ban đầu: "));
+        let soThang = parseInt(prompt("Nhập số tháng gửi hoặc cho vay: "));
+        const laiSuat = 0.01;
+        let soTienCuoiCung = soTienBanDau * (Math.pow((1 + laiSuat), soThang));
+        alert(`Số tiền lãi sau ${soThang} là: ${soTienCuoiCung}`);
+    </script>
+</body>
+</html>
