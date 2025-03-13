@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<button onclick="startGame()">Bắt đầu</button>
+<script>
+    function startGame() {
+        let max = +prompt("Số bạn muốn đoán trong khoảng lớn nhất là bao nhiêu?");
+        //math.floor(): làm tròn
+        let numberRandom = Math.floor(Math.random() * max);
+        console.log(numberRandom);
+        let numberCheck;
+        let countCheck = 0;
+        do {
+            numberCheck = +prompt("Nhập số dự đoán");
+            if (numberCheck === numberRandom) {
+                alert("Chúc mừng bạn!");
+                break;
+            }
+            countCheck++;
+            if (countCheck >= 3) {
+                alert("Bạn đã hết số lần đoán");
+                document.write("Bạn đã hết số lần đoán");
+                break;
+            } else {
+                if (numberCheck > numberRandom) {
+                    alert("Số bạn đoán lớn hơn");
+                } else {
+                    alert("Số bạn đoán nhỏ hơn");
+                }
+            }
+        } while (countCheck < 3);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let soTienBanDau = +prompt("Nhập số tiền ban đầu: ");
+    let soThang = +prompt("Số tháng cho vay:");
+    let laiXuat = +prompt("lãi xuất ngân hàng:");
+    let tongTien = soTienBanDau;
+    for (let i = 1; i <= soThang; i++) {
+        let tienLai = (laiXuat/100)*tongTien;
+        tongTien += tienLai;
+        document.write(`Lãi tháng ${i}: ${tienLai.toFixed(2)}VNĐ <br>`);
+    }
+    document.write(`Tổng tiền lãi sau 6 tháng là: ${tongTien.toFixed(2)}VNĐ`);
+</script>
+</body>
+</html>

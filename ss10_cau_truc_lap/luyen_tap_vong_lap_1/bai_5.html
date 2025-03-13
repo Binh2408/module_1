@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    function fibonacci(number) {
+        let a = 0;
+        let b = 1;
+        let temp;
+        let sum = 0;
+        for (let i = 0; i < number; i++) {
+            sum += a;
+            //console.log(a);
+            temp = a + b;
+            a = b;
+            b = temp;
+        }
+        console.log(`Tổng của 20 số đầu tiên của dãy: ${sum}`);
+    }
+    let number = +prompt("Nhập số lượng cần tính tổng của dãy: ");
+    fibonacci(number);
+</script>
+</body>
+</html>

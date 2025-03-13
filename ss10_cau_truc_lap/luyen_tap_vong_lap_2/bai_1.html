@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <fieldset>
+        <p id="result"></p>
+    </fieldset>
+    <script>
+        let numbers = +prompt("Nhập số lượng số fibonacci cần hiển thị");
+        let a = 0;
+        let b = 1;
+        let temp = a + b;
+        let count = 0;
+        while (true) {
+            temp = a+b;
+            a = b;
+            b = temp;
+            document.getElementById("result").innerHTML += `${a} <br>`;
+            count++;
+            if (count > numbers) {
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

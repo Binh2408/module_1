@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+ <script>
+   function fibonacci(){
+     let a = 0;
+     let b = 1;
+     let temp;
+       while (true) {
+           if (a % 5 === 0 && a !== 0) {
+               console.log(a + "là số đầu tiên trong fibonacci chia hết cho 5");
+               break;
+           }
+           temp = a + b;
+           a = b;
+           b = temp;
+       }
+   }
+   fibonacci();
+ </script>
+</body>
+</html>
