@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài khó</title>
+</head>
+<body>
+<script>
+    let bill = "";
+    let total = 0;
+    let number=0;
+    let soTT = 0;
+    do {
+        number = +prompt(`-----------Menu-----------
+Hãy nhập số để chọn đồ uống
+1.Cafe: 10k
+2.Ca cao: 15k
+3.Nước cam: 20k
+4.Kết thúc
+-----------Danh sách đã chọn-----------\n${bill}
+                                        $Tổng tiền:${total}k`);
+
+        switch (number) {
+            case 1:
+                soTT += 1;
+                bill += `${soTT}.Cafe:10k\n`;
+                total += 10;
+                break;
+            case 2:
+                soTT += 1;
+                bill += `${soTT}.Ca cao:15k\n`;
+                total += 15;
+                break;
+            case 3:
+                soTT += 1;
+                bill += `${soTT}.Ca cao:20k\n`;
+                total += 20;
+                break;
+            case 4:
+                let ketThuc = window.confirm("Bạn có muốn kết thúc?");
+                if (ketThuc === true) {
+                    break;
+                }
+        }
+    } while (number !== 4);
+
+
+</script>
+</body>
+</html>

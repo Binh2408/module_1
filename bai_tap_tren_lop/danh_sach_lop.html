@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài dễ</title>
+</head>
+<body>
+    <script>
+        do {
+            let quanLySinhVien = +prompt(`----------Quản lý sinh viên----------\nHãy nhập số để chọn chức năng\n1.Hiển thị danh sách sinh viên\n2. Thêm mới sinh viên\n3.Xóa sinh viên\n4.Kết thúc chương trình`);
+            if (quanLySinhVien === 1) {
+                alert("Hiển thị danh sách sinh viên");
+            } else if (quanLySinhVien === 2) {
+                alert("Thêm mới sinh viên");
+            } else if (quanLySinhVien === 3) {
+                alert("Xóa sinh viên");
+            } else if (quanLySinhVien === 4){
+                let ketThuc = window.confirm("Bạn có chắc chắn muốn thoát khỏi chương trình?");
+                if (ketThuc === true) {
+                    break;
+                }
+            }
+        } while (true);
+    </script>
+</body>
+</html>
