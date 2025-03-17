@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+  <fieldset>
+    <input type="number" placeholder="Vui lòng số n để tính 1/n" id="number">
+    <button onclick="tinhToan()">Tính</button>
+    <p id="result"></p>
+  </fieldset>
+  <script>
+    function tinhToan() {
+      let number = +document.getElementById("number").value;
+      let sum = 0;
+      for (let i = 1; i <= number; i++) {
+        sum += 1/i;
+      }
+      document.getElementById("result").innerHTML = "Kết quả là: " + sum;
+    }
+  </script>
+</body>
+</html>

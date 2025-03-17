@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+  let soLuong = +prompt("Nhập vào số lượng phần tử trong mảng: ");
+  while (soLuong <= 0) {
+    soLuong = +prompt("Nhập lại");
+  }
+  let mang = new Array(soLuong);
+  for (let j = 0; j < mang.length; j++) {
+    mang[j] = +prompt(`Nhập phần tử ${j + 1}: `);
+  }
+  let giaTriLonNhat = mang[0];
+  let tong = giaTriLonNhat;
+  for (let i = 1; i < mang.length; i++) {
+    if (mang[i] > giaTriLonNhat) {
+      giaTriLonNhat = mang[i];
+    }
+    tong = tong+mang[i];
+  }
+  let trungBinh = tong/mang.length;
+  console.log(mang);
+  console.log(`Giá trị lớn nhất của mảng: ${giaTriLonNhat}`);
+  console.log(`Giá trị trung bình của mảng: ${trungBinh}`);
+</script>
+</body>
+</html>

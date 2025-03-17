@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<script>
+  let array = new Array(10);
+  for (let i = 0; i < 10; i++) {
+    array[i] = +prompt(`Nhập giá trị thứ ${i+1}`);
+  }
+  let number = +prompt("Nhập số nguyên v: ");
+  for (let j = 0; j < array.length; j++) {
+    if (array[j] === number) {
+      array.splice(j,1);
+      j--;
+      array.push(0);
+    }
+  }
+  console.log(array);
+</script>
+</body>
+</html>

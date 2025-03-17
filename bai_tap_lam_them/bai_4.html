@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+  <fieldset>
+    <input type="number" id="number" placeholder="nhập n">
+    <button onclick="tinhToan()">Tính</button>
+    <p id="result"></p>
+  </fieldset>
+  <script>
+    function tinhToan() {
+      let number = parseFloat(document.getElementById("number").value);
+      let result = 0;
+      for (let i = 1; i <= number; i++) {
+        let giaiThua = 1;
+        for (let j = i; j > 0; j--) {
+          giaiThua = giaiThua*j;
+        }
+        result +=((-1)**i)/(giaiThua);
+      }
+      result = 15+result;
+      document.getElementById("result").innerHTML = result;
+
+    }
+  </script>
+</body>
+</html>

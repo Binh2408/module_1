@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+  let nhapVao = prompt("Nhập vào chuỗi số: ");
+  let mang = nhapVao.split("");
+  console.log(mang);
+  for (let i = 0; i< mang.length; i++) {
+    if (mang[i] % 2 === 0 && mang[i+1] % 2 === 0) {
+      mang[i] += "-";
+    }
+  }
+  let ketQua = mang.join("");
+  console.log(ketQua);
+  alert(ketQua);
+</script>
+</body>
+</html>

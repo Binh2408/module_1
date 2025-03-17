@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+  let doDaiMang = +prompt("Nhập vào độ dài mảng");
+  while (doDaiMang < 0) {
+    doDaiMang = +prompt("Nhập lại độ dài");
+  }
+  let mang = new Array(doDaiMang);
+  for (let i = 0; i < mang.length; i++) {
+    mang[i] = +prompt(`Nhập giá trị vị trí của ${i+1}: `)
+  }
+  //cách 1
+  //mang.reverse();
+  //console.log(mang);
+  //cách 2
+  for (let j = 0; j < mang.length/2; j++) {
+    let temp = mang[j];
+    mang[j] = mang[mang.length-1-j];
+    mang[mang.length-1-j] = temp;
+  }
+  console.log(mang);
+  alert(mang);
+</script>
+</body>
+</html>

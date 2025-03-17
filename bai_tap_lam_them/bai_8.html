@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<fieldset>
+    <h2>Tìm Ước Chung Lớn Nhất và Bội Chung Nhỏ Nhất</h2>
+    <label for="number_1">Nhập số số đầu tiên:</label>
+    <input type="number" id="number_1">
+    <br>
+    <br>
+    <label for="number_2">Nhập số số thứ hai:</label>
+    <input type="number" id="number_2">
+    <br>
+    <br>
+    <button onclick="tinhToan()">Tính</button>
+    <p id="result"></p>
+</fieldset>
+<script>
+    function timUCLN(number_1, number_2) {
+        while (number_2 !== 0) {
+            let temp = number_2;
+            number_2 = number_1 % number_2;
+            number_1 = temp;
+        }
+        return number_1;
+    }
+    function timBCNN(number_1, number_2) {
+        return (number_1 * number_2) / timUCLN(number_1, number_2);
+    }
+
+    function tinhToan() {
+        let number_1 = parseInt(document.getElementById("number_1").value);
+        let number_2 = parseInt(document.getElementById("number_2").value);
+
+        if (number_1 <= 0 || number_2 <= 0 || isNaN(number_1) || isNaN(number_2)) {
+            alert("Vui lòng nhập hai số nguyên dương hợp lệ!");
+            return;
+        }
+        let ucln = timUCLN(number_1, number_2);
+        let bcnn = timBCNN(number_1, number_2);
+        document.getElementById("result").innerHTML = `UCLN(${number_1}, ${number_2}) = ${ucln} <br> BCNN(${number_1}, ${number_2}) = ${bcnn}`;
+    }
+</script>
+</body>
+</html>

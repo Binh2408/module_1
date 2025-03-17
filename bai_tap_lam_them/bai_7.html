@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<fieldset>
+    <input type="number" id="number">
+    <button onclick="tinhToan()">Tính</button>
+    <p id="sum"></p>
+    <p id="multiple"></p>
+</fieldset>
+<script>
+    function tinhToan() {
+        let number = +document.getElementById("number").value;
+        let sum = 0;
+        let multiple = 1;
+        let donVi = 0;
+        let sumStr = "";
+        let multipleStr = "";
+        let first = true;
+        do {
+            donVi = number % 10;
+            number = parseInt(number / 10);
+            // Xây dựng chuỗi biểu diễn phép toán
+            if (first) {
+                sumStr = donVi;
+                multipleStr = donVi;
+                first = false;
+            } else {
+                sumStr = donVi + "+" + sumStr;
+                multipleStr = donVi + "*" + multipleStr;
+            }
+            sum += donVi;
+            multiple *= donVi;
+            if (number < 1) {
+                break;
+            }
+        } while (true)
+        document.getElementById("sum").innerHTML = `S= ${sumStr}=${sum}`;
+        document.getElementById("multiple").innerHTML = `P= ${multipleStr}=${multiple}`;
+    }
+</script>
+</body>
+</html>

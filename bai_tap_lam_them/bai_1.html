@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập chiều cao n cần vẽ: ");
+    for (let i = 0; i < n; i++) {
+        if (i % 2 === 0) {
+            for (let j = 0; j < n - i - 1; j++) {
+                document.write("&nbsp;");
+            }
+            for (let k = 0; k <= i; k++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+</script>
+</body>
+</html>

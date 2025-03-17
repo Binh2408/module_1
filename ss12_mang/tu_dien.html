@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<fieldset>
+    <legend style="text-align: center">Từ điển</legend>
+    <input type="text" id="nhapVao">
+    <button onclick="dich()">Dịch</button>
+    <p id="ketQua"></p>
+</fieldset>
+<script>
+    function dich() {
+        let english = ["car", "bus", "airplane", "bicycle"];
+        let vietnamese = ["ô tô", "xe buýt", "máy bay", "xe đạp"];
+        let found = false;
+        let nhapVao = document.getElementById("nhapVao").value;
+        console.log(nhapVao);
+        let ketQua = document.getElementById("ketQua");
+        for (let i = 0; i < english.length; i++) {
+            if (nhapVao === english[i]) {
+                ketQua.innerText = `Nghĩa của ${english[i]} là : ${vietnamese[i]}`;
+                found = true;
+                break;
+            }
+        }
+        if (found === false) {
+            alert("Không tìm thấy");
+        }
+    }
+</script>
+</body>
+</html>

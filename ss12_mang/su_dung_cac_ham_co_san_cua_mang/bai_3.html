@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài3</title>
+</head>
+<body>
+<script>
+    let chuoi = prompt("Nhập vào chuỗi");
+    let mang = chuoi.split("");
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let result = [];
+    console.log(mang);
+    for (let i = 0; i < mang.length; i++) {
+        if (UPPER.indexOf(mang[i]) !== -1) {
+            result.push(mang[i].toLocaleLowerCase());
+        } else if (LOWER.indexOf(mang[i]) !== -1) {
+            result.push(mang[i].toLocaleUpperCase());
+        } else {
+            result.push(mang[i]);
+        }
+    }
+    let ketQua = result.join("");
+    console.log(ketQua);
+    alert(ketQua);
+</script>
+</body>
+</html>

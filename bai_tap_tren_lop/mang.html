@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng</title>
+</head>
+<body>
+<script>
+    let doDaiMang = +prompt("Nhập độ dài của mảng: ");
+    while (doDaiMang < 0) {
+        doDaiMang = +prompt("Nhập lại độ dài lớn hơn 0");
+    }
+    let mang = new Array(doDaiMang);
+    for (let i = 0; i < mang.length; i++) {
+        mang[i] = +prompt("Nhập giá trị");
+    }
+    console.log(mang);
+    document.write(`[${mang}]`);
+</script>
+</body>
+</html>
