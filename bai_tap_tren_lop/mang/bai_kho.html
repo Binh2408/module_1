@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài khó</title>
+</head>
+<body>
+<script>
+    //hello world hello world vn
+    let chuoi = prompt("Nhập vào một chuỗi");
+    let mang =chuoi.split(" ");
+    let mang2 = [];
+    for (let i = 0; i < mang.length; i++) {
+        if (mang[i] !== "") {
+            mang2.push(mang[i]);
+        }
+    }
+    console.log(mang2);
+    let mang3 = [];
+    for (let i = 0; i < mang2.length; i++) {
+        if (!mang3.includes(mang2[i])) {
+            mang3.push(mang2[i]);
+        }
+    }
+    console.log(mang3);
+    // Đếm số lần xuất hiện của từng từ trong mang2
+    for (let j = 0; j < mang3.length; j++) {
+        let count = 0;
+        for (let i = 0; i < mang2.length; i++) {
+            if (mang2[i] === mang3[j]) {
+                count++;
+            }
+        }
+        console.log(`Từ "${mang3[j]}" xuất hiện ${count} lần.`);
+    }
+</script>
+</body>
+</html>

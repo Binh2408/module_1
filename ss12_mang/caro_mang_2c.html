@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAKING TEXT</title>
+</head>
+<body>
+<p id="display"></p>
+<script>
+    let row = +prompt("Nhập số hàng");
+    let col = +prompt("Nhập số cột");
+    let array = new Array(row);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = new Array(col);
+        for (let j = 0; j < array[i].length; j++) {
+            array[i][j] = ''
+        }
+    }
+    //hiển thị
+    let tableString = `<table border='1'>`;
+    for (let i = 0; i < array.length; i++) {
+        tableString += `<tr>`;
+        for (let j = 0; j < array[i].length; j++) {
+            tableString += `<td style="width: 40px; height: 40px;text-align: center">${array[i][j]}</td>`;
+        }
+        tableString += `  </tr>`
+    }
+    tableString += `</table>`;
+    document.getElementById("display").innerHTML = tableString;
+    array[i][j] = "X";
+</script>
+</body>
+</html>

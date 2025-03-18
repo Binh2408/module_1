@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    let chuoi = prompt("Nhập một chuỗi vào: ");
+    console.log(chuoi);
+    let laTu = false;
+    let soTu = 0;
+    for (let i = 0; i < chuoi.length; i++) {
+        if (chuoi[i] !== " ") {
+            if (!laTu) {
+                soTu++;
+                laTu = true;
+            }
+        } else {
+            laTu = false;
+        }
+    }
+    console.log(soTu);
+</script>
+</body>
+</html>

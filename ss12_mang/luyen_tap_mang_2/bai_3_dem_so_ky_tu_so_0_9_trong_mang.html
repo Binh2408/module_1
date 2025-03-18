@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+  let chuoi = prompt("Nhập một chuỗi vào: ");
+  let mang = chuoi.split("");
+  let kichThuoc = mang.length;
+  let count = 0;
+  for (let i = 0; i < kichThuoc; i++) {
+      if (mang[i] >= '0' && mang[i] <= '9') {
+        count++;
+      }
+  }
+  console.log(mang);
+  console.log(kichThuoc);
+  console.log(count);
+</script>
+</body>
+</html>

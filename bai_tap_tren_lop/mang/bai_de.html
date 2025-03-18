@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài dễ</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài cho mảng: ");
+    while (number < 0 && number > 20) {
+        number = +prompt("Nhập lại");
+    }
+    let array = new Array(number);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`Nhập giá trị thứ ${i+1}`);
+    }
+    console.log(array);
+    let sum = 0;
+    for (let j = 0; j < array.length; j = j+ 2) {
+        if (array[j] % 3 === 0) {
+            sum += array[j];
+        }
+    }
+    console.log(`Tổng các phần tử ở vị trí chẵn và chia hết cho 3 là: ${sum}`);
+</script>
+</body>
+</html>
