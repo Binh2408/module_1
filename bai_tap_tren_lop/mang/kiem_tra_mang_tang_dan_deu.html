@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = new Array(4);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`Nhập giá trị thứ ${i}`);
+    }
+    console.log(array);
+    let isRise = true;
+    let a = array[1] - array[0];
+    for (let j =0; j < array.length-1; j++) {
+        if (array[j+1] - array[j] === a || array[j] >=array[j+1]) {
+            isRise = false;
+            break;
+        }
+    }
+    if (isRise) {
+        alert("TRUE");
+    } else {
+        alert("FALSE");
+    }
+</script>
+</body>
+</html>

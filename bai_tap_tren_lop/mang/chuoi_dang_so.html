@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chuoi;
+    while (true) {
+        chuoi = prompt("Nhập số có 4 chữ số");
+        if (!isNaN(chuoi) && chuoi.length === 4) {
+            break;
+        } else {
+            alert("Nhập số có 4 chữ số");
+        }
+    }
+    let mang = chuoi.split("");
+    console.log(mang);
+    let mang2 = [];
+    let mang3 = [];
+    let max = 0;
+    for (let i = 0; i < mang.length; i++) {
+        //slice(): dùng để sao chép
+        mang3 = mang.slice();
+        mang3.splice(i,1)
+        mang2.push(mang3.join(""));
+        for (let j = 0; j < mang2.length; j++) {
+            if (mang2[j] > max) {
+                max = mang2[j];
+            }
+        }
+    }
+    console.log(mang2);
+    console.log(max);
+</script>
+</body>
+</html>

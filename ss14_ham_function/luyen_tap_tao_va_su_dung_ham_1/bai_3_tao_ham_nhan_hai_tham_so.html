@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+  function checkTwoNumber(number1, number2) {
+    if (number1 > number2) {
+      alert("Số thứ nhất lớn hơn số thứ hai. Nhập lại!!!");
+    } else {
+      let sum = number1 + number2;
+      return sum;
+    }
+  }
+  let number1 = +prompt("Nhập số thứ nhất");
+  let number2 = +prompt("Nhập số thứ hai");
+  document.write(checkTwoNumber(number1, number2));
+</script>
+</body>
+</html>

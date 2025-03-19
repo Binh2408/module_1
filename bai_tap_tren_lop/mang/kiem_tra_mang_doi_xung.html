@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài mảng: ");
+    while (number < 0) {
+        number = +prompt("Nhập lại");
+    }
+    let array = new Array(number);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`Nhập giá trị thứ ${i}`);
+    }
+    console.log(array);
+    let isTheSame = true;
+    for (let j =0; j < array.length/2; j++) {
+        if (array[j] !== array[array.length - 1-j]) {
+            isTheSame = false;
+            break;
+        }
+    }
+    if (isTheSame) {
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+</script>
+</body>
+</html>
