@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ký tự trong mảng</title>
+</head>
+<body>
+<script>
+  let number = +prompt("Nhập độ dài mảng");
+  while (number < 0) {
+    number = +prompt("Nhập lại");
+  }
+  let array = new Array(number);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = prompt(`Nhập giá trị thứ ${i}`);
+  }
+  let character = prompt("Nhập một ký tự bất kỳ");
+  console.log(array);
+  console.log(character);
+  function checkExist(array,char) {
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].includes(char)) {
+        count++;
+      }
+    }
+    if (count > 0) {
+      return count;
+    } else {
+      return -1;
+    }
+  }
+  document.write("Số lần xuất hiện: " + checkExist(array,character));
+</script>
+</body>
+</html>

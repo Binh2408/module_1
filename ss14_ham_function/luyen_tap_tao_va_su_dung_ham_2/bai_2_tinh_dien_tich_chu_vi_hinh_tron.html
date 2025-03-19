@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chu vi và diện tích hình tròn</title>
+</head>
+<body>
+<script>
+  const PI = 3.14;
+  function areaCircle(number) {
+    return (number * number * PI).toFixed(2);
+  }
+  function perimeterCircle(number) {
+    return (2 * number * PI).toFixed(2);
+  }
+  let number = +prompt("Nhập bán kính hình tròn");
+  if (number < 0) {
+    document.write("Nhập lại");
+  } else {
+    document.write("Chu vi: " + perimeterCircle(number)+"<br>");
+    document.write("Diện tích: " + areaCircle(number));
+  }
+</script>
+</body>
+</html>

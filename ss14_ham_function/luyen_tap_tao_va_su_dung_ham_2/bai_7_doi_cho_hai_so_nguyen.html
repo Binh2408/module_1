@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chỗ hai số nguyên</title>
+</head>
+<body>
+<script>
+  function changeLocationInterger(number1,number2) {
+    let temp = number1;
+    number1 = number2;
+    number2 = temp;
+    return document.write("Sau khi đổi "+ number1 + ", " + number2);
+  }
+  let number1 = +prompt("Nhập số thứ nhất");
+  let number2 = +prompt("Nhập số thứ hai");
+  changeLocationInterger(number1,number2);
+</script>
+</body>
+</html>

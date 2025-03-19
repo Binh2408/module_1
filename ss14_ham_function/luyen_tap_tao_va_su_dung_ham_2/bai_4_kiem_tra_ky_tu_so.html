@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ký tự số</title>
+</head>
+<body>
+<script>
+  function checkNumericCharacters(char) {
+    let number = "0123456789";
+    for (let i = 0; i < 10; i++) {
+      if (char === number[i]) {
+        return true;
+      }
+    }
+    return false;
+  }
+  let kyTu = prompt("Nhập vào ký tự");
+  if (checkNumericCharacters(kyTu) === true) {
+    document.write("Là ký tự số");
+  } else {
+    document.write("Không phải là ký tự số");
+  }
+</script>
+</body>
+</html>

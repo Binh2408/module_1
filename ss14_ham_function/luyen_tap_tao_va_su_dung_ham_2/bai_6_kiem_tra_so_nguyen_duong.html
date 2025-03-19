@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên dương</title>
+</head>
+<body>
+<script>
+    //số nguyên dương lớn 0 và chia hết cho 1
+    function checkPositiveInteger(number) {
+        if (number > 0 && number % 1 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    let number = +prompt("Nhập số");
+    if (checkPositiveInteger(number) === true) {
+        document.write("Là số nguyên dương");
+    } else {
+        document.write("Không phải là số nguyên dương");
+    }
+</script>
+</body>
+</html>

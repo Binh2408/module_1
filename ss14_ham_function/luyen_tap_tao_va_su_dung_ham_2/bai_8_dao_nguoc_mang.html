@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+<script>
+    function reverseArray(array) {
+        for (let i = 0; i < array.length/2; i++) {
+            let temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
+        }
+        return array;
+    }
+    let number = +prompt("Nhập độ dài mảng");
+    while (number < 0) {
+        number = +prompt("Nhập lại");
+    }
+    let array = new Array(number);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`Nhập giá trị thứ ${i}`);
+    }
+    document.write(reverseArray(array));
+</script>
+</body>
+</html>

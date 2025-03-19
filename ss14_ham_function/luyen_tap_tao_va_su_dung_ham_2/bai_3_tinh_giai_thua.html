@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa</title>
+</head>
+<body>
+<script>
+  function calFactorial(number) {
+    if (number === 0) {
+      return 1;
+    }
+    let sum = 1;
+    for (let i = 1; i <= number; i++) {
+      sum = sum*i;
+    }
+    return sum;
+  }
+  let number = +prompt("Nhập số");
+  if (number < 0) {
+    document.write("Nhập lại");
+  } else {
+    document.write(calFactorial(number));
+  }
+</script>
+</body>
+</html>
