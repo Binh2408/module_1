@@ -7,6 +7,7 @@
 <body>
 <p id="display"></p>
 <script>
+    let isPlayer = true;
     let row = +prompt("Nhập số hàng");
     let col = +prompt("Nhập số cột");
     let array = new Array(row);
@@ -16,18 +17,65 @@
             array[i][j] = ''
         }
     }
+    display();
+
     //hiển thị
-    let tableString = `<table border='1'>`;
-    for (let i = 0; i < array.length; i++) {
-        tableString += `<tr>`;
-        for (let j = 0; j < array[i].length; j++) {
-            tableString += `<td style="width: 40px; height: 40px;text-align: center">${array[i][j]}</td>`;
+    function display() {
+        let tableString = `<table border='1'>`;
+        for (let i = 0; i < array.length; i++) {
+            tableString += `<tr>`;
+            for (let j = 0; j < array[i].length; j++) {
+                tableString += `<td onclick="play(${i},${j})" style="width: 40px; height: 40px;text-align: center">${array[i][j]}</td>`;
+            }
+            tableString += `  </tr>`
         }
-        tableString += `  </tr>`
+        tableString += `</table>`;
+        document.getElementById("display").innerHTML = tableString;
     }
-    tableString += `</table>`;
-    document.getElementById("display").innerHTML = tableString;
-    array[i][j] = "X";
+
+    function play(i, j) {
+        if (array[i][j] === "") {
+            if (isPlayer) {
+                array[i][j] = "X";
+                isPlayer = false;
+                display();
+                if (checkIsWin()){
+                    alert("X chiến thắng")
+                }
+
+            } else if (!isPlayer) {
+                array[i][j] = "O";
+                isPlayer = true;
+                display();
+
+                if (checkIsWin()){
+                    alert("O chiến thắng")
+                }
+            }
+        } else {
+            alert("Ô này đã được đánh!!!");
+        }
+
+    }
+    function checkIsWin() {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j]==="X"&&array[i][j+1]==="X"&&array[i][j+2]==="X"){
+                    return true;
+                }
+                if (array[i][j]==="X"&&array[i+1][j]==="X"&&array[i+2][j]==="X"){
+                    return true;
+                }
+                if (array[i][j]==="X"&&array[i+1][j+1]==="X"&&array[i+2][j+2]==="X"){
+                    return true;
+                }
+                if (array[i][j]==="X"&&array[i-1][j+1]==="X"&&array[i-2][j+2]==="X"){
+                    return true;
+                }
+            }
+
+        }
+    }
 </script>
 </body>
 </html>

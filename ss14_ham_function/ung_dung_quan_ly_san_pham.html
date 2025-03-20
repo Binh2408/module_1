@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+</head>
+<style>
+    button {
+        background-color: #50ae50;
+        color: white;
+        border: 1px solid #50ae50;
+        height: 20px;
+    }
+    tr:nth-child(even) {
+        background-color: #e6e6e6;
+    }
+</style>
+<body>
+<div id="addProduct">
+    <h1>Add New Product</h1>
+    <div style="border: 20px solid #f0f0f0; width: 250px; text-align: center; background-color: #f0f0f0">
+        <input type="text" placeholder="New Product" id="productName">
+        <button onclick="addNewProduct()">Add</button>
+    </div>
+</div>
+<div>
+    <h1>Display All Product</h1>
+    <div style="display: flex">
+        <h3 style="padding-right: 35%">Product Name</h3>
+        <p style="color:red;font-weight: bold;" id="totalProduct">0 products</p>
+    </div>
+</div>
+<div>
+    <p id="display"></p>
+</div>
+<script>
+    let listProducts = ["Sony Xperia","Samsung Galaxy","Nokia6","Iphone12"];
+    displayAllProduct(listProducts);
+    totalProduct();
+    function addNewProduct() {
+        let productName = document.getElementById("productName").value;
+        if (productName.trim() !== "") {
+            listProducts.push(productName);
+            console.log(listProducts);
+            totalProduct();
+            displayAllProduct(listProducts);
+            document.getElementById("productName").value = "";
+        } else {
+            alert("Vui lòng nhập tên");
+        }
+    }
+    function totalProduct() {
+        document.getElementById("totalProduct").innerText = listProducts.length + " products";
+    }
+    function displayAllProduct(list) {
+        let tableString = "<table style='width: 50%; border-collapse: collapse; border: none'>"
+        for (let i = 0; i < list.length; i++) {
+            tableString += "<tr>";
+            tableString += "<td>" + list[i] + "</td>";
+            tableString += "<td>" + "<button onclick='editProduct("+i+")'>Edit</button>" + "</td>";
+            tableString += "<td>" + "<button onclick='deleteProduct("+i+")'>Delete</button>" + "</td>";
+            tableString += "</tr>";
+        }
+        tableString += "</table>";
+        document.getElementById("display").innerHTML = tableString;
+    }
+    function deleteProduct(index) {
+        let conf = window.confirm("Bạn có muốn xóa" + listProducts[index] + "?");
+        if (conf) {
+            listProducts.splice(index, 1);
+        }
+        displayAllProduct(listProducts);
+        totalProduct();
+    }
+    function editProduct(index) {
+        let editProduct = prompt(listProducts[index] + " Nhập vào tên cần sửa");
+        listProducts[index] = editProduct;
+        displayAllProduct(listProducts);
+    }
+</script>
+</body>
+</html>

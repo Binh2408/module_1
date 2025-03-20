@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra chuỗi đối xứng</title>
+</head>
+<body>
+<script>
+    let char = prompt("Nhập vào một chuỗi");
+    let arr = char.split("");
+    console.log(arr);
+    function isPalindrome(array) {
+        let isTheSame = false;
+        if (array[0] === array[array.length - 1]) {
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] === array[array.length - 1 - i]) {
+                    isTheSame = true;
+                } else {
+                    return isTheSame === false;
+                }
+            }
+        }
+        return isTheSame;
+    }
+    if (isPalindrome(arr) === true) {
+        console.log("Chuỗi đối xứng");
+    } else {
+        console.log("Không đối xứng");
+    }
+</script>
+</body>
+</html>
