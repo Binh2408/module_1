@@ -5,22 +5,89 @@
     <title>Bài dễ</title>
 </head>
 <body>
-    <script>
-        do {
-            let quanLySinhVien = +prompt(`----------Quản lý sinh viên----------\nHãy nhập số để chọn chức năng\n1.Hiển thị danh sách sinh viên\n2. Thêm mới sinh viên\n3.Xóa sinh viên\n4.Kết thúc chương trình`);
-            if (quanLySinhVien === 1) {
-                alert("Hiển thị danh sách sinh viên");
-            } else if (quanLySinhVien === 2) {
-                alert("Thêm mới sinh viên");
-            } else if (quanLySinhVien === 3) {
-                alert("Xóa sinh viên");
-            } else if (quanLySinhVien === 4){
-                let ketThuc = window.confirm("Bạn có chắc chắn muốn thoát khỏi chương trình?");
-                if (ketThuc === true) {
-                    break;
-                }
+<script>
+    let danhSachSinhVien = ["Khánh", "Bình", "Đông", "Chung"];
+    //hiển thị
+    function hienThiDanhSach(danhSach) {
+        let result = "";
+        for (let i = 0; i < danhSach.length; i++) {
+            result += `${i + 1}. ${danhSach[i]}\n`;
+        }
+        alert(result);
+    }
+    //xóa
+    function xoaSinhVien(danhSach) {
+        let result = "";
+        for (let i = 0; i < danhSach.length; i++) {
+            result += `${i + 1}. ${danhSach[i]}\n`;
+        }
+        let index = +prompt(`${result} \n Nhập vị trí cần xóa`);
+        if (index > 0 && index < danhSach.length) {
+            danhSach.splice(index - 1, 1);
+        } else {
+            alert("Nhập lại");
+            return;
+        }
+        hienThiDanhSach(danhSachSinhVien);
+    }
+    //thêm
+    function themSinhVien(danhSach) {
+        let result = "";
+        for (let i = 0; i < danhSach.length; i++) {
+            result += `${i + 1}. ${danhSach[i]}\n`;
+        }
+        let name = prompt("Nhập tên cần thêm");
+        if (name !== "") {
+            danhSach.push(name);
+        } else {
+            alert("Nhập lại");
+            return;
+        }
+        hienThiDanhSach(danhSach);
+    }
+    //sửa
+    function suaSinhVien(danhSach) {
+        let result = "";
+        for (let i = 0; i < danhSach.length; i++) {
+            result += `${i + 1}. ${danhSach[i]}\n`;
+        }
+        let index = +prompt(`${result} \n Nhập vị trí cần sửa`);
+        if (index > 0 && index <= danhSach.length) {
+            let name = prompt("Nhập tên cần sửa");
+            if (name !== "") {
+                danhSach[index - 1] = name;
+            } else {
+                alert("Nhập lại")
+                return;
             }
-        } while (true);
-    </script>
+        } else {
+            alert("Nhập lại");
+            return;
+        }
+        hienThiDanhSach(danhSach);
+    }
+    do {
+        let quanLySinhVien = +prompt(`----------Quản lý sinh viên----------\nHãy nhập số để chọn chức năng\n1.Hiển thị danh sách sinh viên\n2. Thêm mới sinh viên\n3.Xóa sinh viên\n4.Sửa sinh viên\n5.Kết thúc chương trình`);
+        if (quanLySinhVien === 1) {
+            // alert("Hiển thị danh sách sinh viên");
+            hienThiDanhSach(danhSachSinhVien);
+        } else if (quanLySinhVien === 2) {
+            //alert("Thêm mới sinh viên");
+            themSinhVien(danhSachSinhVien);
+        } else if (quanLySinhVien === 3) {
+            //alert("Xóa sinh viên");
+            xoaSinhVien(danhSachSinhVien);
+        } else if (quanLySinhVien === 4) {
+            suaSinhVien(danhSachSinhVien);
+        } else if (quanLySinhVien === 5) {
+            let ketThuc = window.confirm("Bạn có chắc chắn muốn thoát khỏi chương trình?");
+            if (ketThuc === true) {
+                break;
+            }
+        }
+    } while (true);
+
+
+</script>
 </body>
 </html>

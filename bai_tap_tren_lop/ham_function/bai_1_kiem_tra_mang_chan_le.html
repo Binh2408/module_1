@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng số nguyên</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài mảng");
+    let array = new Array(number);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`Nhập giá trị thứ ${i + 1}`);
+    }
+    console.log(array);
+    function checkArray(array) {
+        let isEven = false;
+        let isOdd =false;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] % 2 === 0) {
+                isEven = true;
+            } else {
+                isOdd = true;
+            }
+            if (isEven === true && isOdd === true) {
+                return -1;
+            }
+        }
+        if (isEven) {
+            return 1;
+        }
+        if (isOdd) {
+            return 0;
+        }
+    }
+    console.log(checkArray(array));
+</script>
+</body>
+</html>

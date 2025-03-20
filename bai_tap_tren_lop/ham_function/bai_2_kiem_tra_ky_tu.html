@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng ký tự</title>
+</head>
+<body>
+<script>
+  let number = +prompt("Nhập độ dài mảng");
+  let array = new Array(number);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = prompt(`Nhập giá trị thứ ${i + 1}`).trim();
+  }
+  console.log(array);
+  function checkChar(array) {
+    let isNumber = false;
+    let isLetter = false;
+    for (let i = 0; i < array.length; i++) {
+      if (isNaN(array[i]) === true) {
+        isLetter = true;
+      } else {
+        isNumber = true;
+      }
+      if (isLetter === true && isNumber === true) {
+        return -1;
+      }
+    }
+    if (isNumber) {
+      return 1;
+    }
+    if (isLetter) {
+      return 0;
+    }
+
+  }
+  console.log(checkChar(array));
+</script>
+</body>
+</html>
