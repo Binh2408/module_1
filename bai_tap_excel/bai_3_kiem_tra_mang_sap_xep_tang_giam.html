@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng đã sắp xếp tăng hoặc giảm</title>
+</head>
+<!--Nhập 1 mảng từ bàn phím với độ dài n-->
+<!--Hiện thị mảng sau khi thêm mới các phần tử-->
+<!--Kiểm tra mảng vừa nhập. Nếu  mảng mới nhập đã được sắp xếp ( tăng/giảm dần) thì hiện thị thông báo "OK", nếu không thoả mãn thì hiện thị "NO"-->
+
+<body>
+<script>
+  let number = +prompt("Nhập độ dài n");
+  while (number <= 0) {
+    number = +prompt("Nhập lại độ dài");
+  }
+  let arr = new Array(number);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = +prompt(`Nhập giá trị thứ ${i + 1}`);
+  }
+  console.log(arr);
+  function checkArray(arr) {
+    let isAscending = true;
+    let isDescending = true;
+    for (let i = 0; i < arr.length-1; i++) {
+      if (arr[i] < arr[i+1]) {
+        isDescending = false;
+      } else if (arr[i] > arr[i+1]) {
+        isAscending = false;
+      }
+    }
+    if (isAscending) {
+      return "OK-Tăng dần";
+    } else if (isDescending) {
+      return "OK-Giảm dần";
+    } else {
+      return "NO-Không sắp xếp";
+    }
+  }
+  console.log(checkArray(arr));
+</script>
+</body>
+</html>

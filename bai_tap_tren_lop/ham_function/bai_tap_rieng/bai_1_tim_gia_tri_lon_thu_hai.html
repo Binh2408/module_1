@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+  let arr = [0,2,55,4,55,100,55];
+  console.log(arr);
+  function findMaxNumber(array) {
+    let max = array[0];
+    for (let i = 1; i < array.length; i++) {
+      if (array[i] > max) {
+        max = array[i];
+      }
+    }
+    return max;
+  }
+  function findSecondMax(array) {
+    let result = findMaxNumber(array);
+    for (let i = 0; i < array.length; i++) {
+      if (result === array[i]) {
+        array.splice(i, 1);
+      }
+    }
+    result = findMaxNumber(array);
+    let count = 0;
+    for (let j = 0; j < array.length; j++) {
+      if (result === array[j]) {
+        count++;
+      }
+    }
+    return `Số lớn thứ hai là:${result}\nsố lượng phần tử lớn thứ hai:${count}`;
+  }
+  // console.log(findMaxNumber(arr));
+  console.log(findSecondMax(arr));
+</script>
+</body>
+</html>

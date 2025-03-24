@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let count = 1;
+  for (let i = 1; i <= 5; i++) {
+    for (let k = 5; k > 0; k--) {
+      if (count === k) {
+        document.write(`${k}`);
+      } else {
+        document.write("&nbsp;&nbsp");
+      }
+    }
+    document.write("&nbsp;&nbsp");
+    for (let k = 1; k <= 5; k++) {
+      if (count === k) {
+        document.write(`${k}`);
+      } else {
+        document.write("&nbsp;&nbsp");
+      }
+    }
+    count++;
+    document.write("<br>");
+  }
+  let count1 = 4;
+  for (let i = 1; i <= 4; i++) {
+    for (let k = 5; k > 0; k--) {
+        if (count1 !== k) {
+            document.write("&nbsp;&nbsp");
+        } else {
+            document.write(`${k}`);
+        }
+    }
+      document.write("&nbsp;&nbsp");
+
+      for (let k = 1; k <= 5; k++) {
+        if (count1 !== k) {
+            document.write("&nbsp;&nbsp");
+        } else {
+            document.write(`${k}`);
+        }
+    }
+    count1--;
+    document.write("<br>");
+
+  }
+</script>
+</body>
+</html>

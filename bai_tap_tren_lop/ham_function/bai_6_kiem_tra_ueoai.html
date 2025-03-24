@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<script>
+  let nhapChuoi = prompt("Nhập vào một chuỗi");
+  console.log(nhapChuoi);
+  let ketQua = [];
+  function checkString(chuoi) {
+    let nguyenAm = ["u","e","o","a","i"];
+    for (let i = 0; i < chuoi.length; i++) {
+      if (nguyenAm.includes(chuoi[i]) && !ketQua.includes(chuoi[i])) {
+        ketQua.push(chuoi[i]);
+      }
+    }
+    return ketQua
+  }
+  console.log(checkString(nhapChuoi));
+</script>
+</body>
+</html>

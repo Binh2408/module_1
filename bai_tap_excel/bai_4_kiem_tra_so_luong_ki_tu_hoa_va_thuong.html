@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số ký tự in hoa và ký tự in thường</title>
+</head>
+<!--Viết 1 hàm truyền vào 1 tham số (với tham số là một chuỗi), (checkString(str))-->
+<!--"Thực hiện kiểm tra. Nếu số ký tự in Hoa bằng ký tự in thường  thì trả về true. Ngược lại trả về false-->
+
+<body>
+<script>
+    let str = prompt("Nhập độ vào một chuỗi");
+    function checkString(str) {
+        let countUpperCase = 0;
+        let countLowerCase = 0;
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === str[i].toUpperCase() && str[i] !== str[i].toLowerCase()) {
+                countUpperCase++;
+            } else if (str[i] === str[i].toLowerCase() && str[i] !== str[i].toUpperCase()) {
+                countLowerCase++;
+            }
+        }
+        if (countUpperCase === countLowerCase) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    console.log(checkString(str));
+    //cách 2: nên sử dụng vì char giúp loại bỏ những ký tự ko phải chữ
+    // let str = prompt("Nhập vào một chuỗi:");
+    // function checkString(str) {
+    //   let countUpperCase = 0;
+    //   let countLowerCase = 0;
+    //
+    //   for (let i = 0; i < str.length; i++) {
+    //     let char = str[i];
+    //
+    //     if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+    //       countUpperCase++;
+    //     } else if (char === char.toLowerCase() && char !== char.toUpperCase()) {
+    //       countLowerCase++;
+    //     }
+    //   }
+    //
+    //   return countUpperCase === countLowerCase;
+    // }
+</script>
+</body>
+</html>

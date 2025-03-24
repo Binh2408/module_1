@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số phần tử bằng số phần tử lẻ</title>
+</head>
+<body>
+<!--Nhập 1 mảng từ bàn phím với độ dài n-->
+<!--Hiện thị mảng sau khi thêm mới các phần tử-->
+<!--Kiểm tra mảng vừa nhập. Nếu số phần tử chẵn bằng số phần tử lẻ thì hiện thị thông báo "OK", nếu không thoả mãn thì hiện thị "NO"-->
+
+<script>
+    let number = +prompt("Nhập độ dài n");
+    while (number <= 0) {
+        number = +prompt("Nhập lại độ dài");
+    }
+    let arr = new Array(number);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`Nhập giá trị thứ ${i+1}`);
+    }
+    console.log(arr);
+    function checkOdd(array) {
+        let countOdd = 0;
+        let countEven = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] % 2 === 0) {
+                countEven++;
+            } else {
+                countOdd++;
+            }
+        }
+        if (countEven === countOdd) {
+            return true;
+        }
+        return false;
+    }
+    if (checkOdd(arr) === true) {
+        console.log("OK");
+    } else {
+        console.log("NO");
+    }
+</script>
+</body>
+</html>

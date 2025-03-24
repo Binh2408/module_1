@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<script>
+  function checkTriangle(x,y,z) {
+    if (x+y > z) {
+      if ((x*x) + (y*y) === (z*z)) {
+        return -1;
+      }
+      return 1;
+    } else if (y+z > x) {
+      if ((y*y)+(z*z) === (x*x)) {
+        return -1;
+      }
+      return 1;
+    } else if (x+z > y) {
+      if ((x*x)+(z*z) === (y*y)) {
+        return -1;
+      }
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+  let number1 = +prompt("Nhập độ dài cạnh thứ nhất");
+  let number2 = +prompt("Nhập độ dài cạnh thứ hai");
+  let number3 = +prompt("Nhập độ dài cạnh thứ ba");
+  if (checkTriangle(number1,number2,number3) === 1) {
+    alert("là 3 cạnh của tam giác");
+  } else if (checkTriangle(number1,number2,number3) === -1) {
+    alert("Là 3 cạnh của tam giác vuông");
+  } else {
+    alert("Không phải là cạnh tam giác");
+  }
+</script>
+</body>
+</html>

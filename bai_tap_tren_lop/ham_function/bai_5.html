@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+  let number = +prompt("Nhập vào độ dài mảng");
+  while (number % 2 !== 0) {
+      number = +prompt("Nhập số chẵn");
+  }
+  let array = new Array(number);
+  for (let i = 0; i < array.length; i++) {
+      array[i] = +prompt(`Nhập giá trị thứ ${i+1}`);
+  }
+  function checkArray(arr) {
+      let isOk = false;
+      for (let i = 0; i < arr.length; i+=2) {
+          if (arr[i] < arr[i+1]) {
+              isOk = true;
+          } else {
+              isOk = false;
+              return isOk;
+          }
+      }
+      return isOk;
+  }
+  if (checkArray(array) === false) {
+      alert("NO");
+  } else {
+      alert("OK");
+  }
+</script>
+</body>
+</html>
