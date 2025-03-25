@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng phần tử thứ nhất bé hơn phần t thứ hai</title>
+</head>
+<!--Nhập 1 mảng từ bàn phím với độ dài n (với n là số chẵn)-->
+<!--Hiện thị mảng sau khi thêm mới các phần tử-->
+<!--"Kiểm tra mảng vừa nhập. Nếu các cặp phần ở liền kề nhau (phần tử thứ nhất <phần tử thứ 2) thì hiện thị thông báo ""OK"",-->
+<!--nếu không thoả mãn thì hiện thị ""NO"""-->
+<!--Ví dụ: [1,2,6,7,5,8] => OK ( vì cặp (1,2), (6,7),(5,8) thoả mãn vì  phần tử thứ nhất nhỏ hơn phần tử thứ 2-->
+<!--[1,2,6,7,8,4]=> NO vì cặp (8,4) không thoả mãn)-->
+
+<body>
+<script>
+    let number = +prompt("Nhập độ dài cho mảng");
+    while (number % 2 !== 0 || number <= 0) {
+        number = +prompt("Nhập lại độ dài là chẵn");
+    }
+    let arr = new Array(number);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`Nhập giá trị phần tử thứ ${i+1}`);
+    }
+    console.log(arr);
+    function checkArray(array) {
+        let isOk = false;
+        for (let i = 0; i < array.length-1; i+=2) {
+            if (array[i] < array[i+1]) {
+                isOk = true;
+            } else {
+                return false;
+            }
+        }
+        return isOk;
+    }
+    if (checkArray(arr)) {
+        console.log("OK");
+    } else {
+        console.log("NO");
+    }
+</script>
+</body>
+</html>

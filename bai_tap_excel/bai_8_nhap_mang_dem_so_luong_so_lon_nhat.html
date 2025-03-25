@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NHập mảng và đếm số lượng số lớn nhất trong mảng</title>
+</head>
+<body>
+<script>
+  let number = +prompt("Nhập độ dài cho mảng");
+  while (number <= 0) {
+    number = +prompt("Nhập lại độ dài cho mảng");
+  }
+  let arr = new Array(number);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = +prompt(`Nhập giá trị thứ ${i+1}`);
+  }
+  console.log(arr);
+  function findMaxNumber(array) {
+    let max = array[0];
+    for (let i = 0; i < array.length; i++) {
+      if (max < array[i]) {
+        max = array[i];
+      }
+    }
+    return max;
+  }
+  function countMaxNumber(array) {
+    let count = 0;
+    let maxNumber = findMaxNumber(array);
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === maxNumber) {
+        count++;
+      }
+    }
+    return count;
+  }
+  console.log(`Số lớn nhất là ${findMaxNumber(arr)}`);
+  console.log(`Số lần xuất hiện của số lớn nhất: ${countMaxNumber(arr)}`);
+</script>
+</body>
+</html>

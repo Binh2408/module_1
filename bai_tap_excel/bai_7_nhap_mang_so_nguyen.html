@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập mảng số nguyên và kiểm tra mảng có hàng đơn vị lớp hơn hàng chục</title>
+</head>
+<!--Khai báo  1 mảng số nguyên từ bàn phím với độ dài n.-->
+<!--Nhập các phần tử cho  mảng với  một số nguyên lớn hơn 10 và nhỏ hơn 100.-->
+<!--Hiện thị mảng sau khi thêm mới các phần tử-->
+<!--Viết chương trình hiện thị các phần tử của mảng có hàng đơn vị lớp hơn hàng chục ví dụ: [11, 12, 21 , 56, 19] => kết quả hiện thị ra 12,56,19-->
+<body>
+<script>
+    let number = +prompt("Nhập độ dài mảng");
+    while (number <= 0) {
+        number = +prompt("Nhập lại độ dài");
+    }
+    let arr = new Array(number);
+    for (let i = 0; i < number; i++) {
+        let inputValue;
+        do {
+            inputValue = +prompt(`Nhập số nguyên thứ ${i + 1} (10 ≤ số < 100):`);
+        } while (inputValue < 10 || inputValue >= 100 || isNaN(inputValue));
+        arr[i] = inputValue;
+    }
+    console.log(arr);
+    function checkArray(array) {
+        let newArr = [];
+        for (let i = 0; i < array.length; i++) {
+            //dùng math.floor để lấy phần nguyên
+            let hangChuc =Math.floor(array[i]/10);
+            let hangDonVi = array[i]%10;
+            if (hangDonVi > hangChuc) {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+
+    console.log(checkArray(arr));
+</script>
+</body>
+</html>

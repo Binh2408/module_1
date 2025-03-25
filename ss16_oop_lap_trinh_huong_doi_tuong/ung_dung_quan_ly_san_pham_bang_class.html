@@ -1,0 +1,141 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ứng dụng quản lý sản phẩm khởi tạo đối tượng class</title>
+    </head>
+    <style>
+        button {
+            background-color: #50ae50;
+            color: white;
+            border: 1px solid #50ae50;
+            height: 20px;
+        }
+        tr:nth-child(even) {
+            background-color: #e6e6e6;
+        }
+        td {
+          text-align: center;
+            width: 100px;
+        }
+    </style>
+    <body>
+    <div id="addProduct">
+        <h1>Add New Product</h1>
+        <div style="border: 20px solid #f0f0f0; width: 250px; background-color: #f0f0f0">
+            <input style="margin-bottom: 20px" type="text" placeholder="New Name Product" id="productName"><br/>
+            <input style="margin-bottom: 20px" type="text" placeholder="Price Product" id="productPrice"><br/>
+            <button style="width: 170px;" onclick="productManager.addNewProduct()">Add</button>
+        </div>
+    </div>
+    <div>
+        <h1>Display All Product</h1>
+        <div style="display: flex">
+            <h3 style="padding-right: 35%">Product Name</h3>
+            <p style="color:red;font-weight: bold;" id="totalProduct">No product to display</p>
+        </div>
+    </div>
+    <div>
+        <p id="display"></p>
+    </div>
+    </body>
+    <script>
+        class Product {
+            constructor(id, name, price) {
+                this.id = id;
+                this.name = name;
+                this.price = price;
+            }
+            getId() {
+                return this.id;
+            }
+            setId(id) {
+                this.id = id;
+            }
+            getName() {
+                return this.name;
+            }
+            setName(name) {
+                this.name = name;
+            }
+            getPrice() {
+                return this.price;
+            }
+            setPrice(price) {
+                this.price = price;
+            }
+        }
+        class ProductManager {
+            constructor() {
+                this.listProducts = [];
+                this.increaseId = 1;//id bắt đầu từ 1
+            }
+            //hiển thị
+            displayAllProduct() {
+                let tableString = "<table border='1' style='width: 50%; border-collapse: collapse;'>" +
+                    "<tr><th>ID</th><th>Name Product</th><th>Price</th><th colspan='2'>Action</th></tr>";
+
+                for (let i = 0; i < this.listProducts.length; i++) {
+                    tableString += "<tr>";
+                    tableString += "<td>" + this.listProducts[i].getId() + "</td>";
+                    tableString += "<td>" + this.listProducts[i].getName() + "</td>";
+                    tableString += "<td>" + this.listProducts[i].getPrice()+"$"+ "</td>";
+                    tableString += "<td>" + "<button style='width: 100px' onclick='productManager.editProduct("+i+")'>Edit</button>" + "</td>";
+                    tableString += "<td>" + "<button style='width: 100px' onclick='productManager.deleteProduct("+i+")'>Delete</button>" + "</td>";
+                    tableString += "</tr>";
+                }
+                tableString += "</table>";
+                document.getElementById("display").innerHTML = tableString;
+            }
+            //thêm mới
+            addNewProduct() {
+                let productName = document.getElementById("productName").value.trim();
+                let productPrice = document.getElementById("productPrice").value.trim();
+                if (productName.trim() !== "" && productPrice.trim() !== "") {
+                    let product = new Product(this.increaseId, productName,productPrice);
+                    this.listProducts.push(product);
+                    this.increaseId++;//tang id cho san pham tiep theo
+                    productManager.displayAllProduct();
+                    document.getElementById("productName").value = "";
+                    document.getElementById("productPrice").value = "";
+                    productManager.updateTotal();
+                } else {
+                    alert("Vui lòng nhập lại");
+                }
+            }
+            //xóa sản phẩm
+            deleteProduct(index) {
+                let confirm = window.confirm("Bạn có muốn xóa " + this.listProducts[index].getName() + "?");
+                if (confirm) {
+                    this.listProducts.splice(index, 1);
+                }
+                productManager.displayAllProduct();
+                productManager.updateTotal();
+            }
+            //sửa sản phẩm
+            editProduct(index) {
+                let editNameProduct = prompt("Nhập tên mới:", this.listProducts[index].getName());
+                let editPriceProduct = prompt("Nhập giá mới:", this.listProducts[index].getPrice());
+                if (editNameProduct.trim() !== "" && editPriceProduct.trim() !== "") {
+                    this.listProducts[index].setName(editNameProduct);
+                    this.listProducts[index].setPrice(editPriceProduct);
+                } else {
+                    alert("Nhập lại tên");
+                }
+                //this.listProducts[id].setName(editNameProduct);
+                productManager.displayAllProduct();
+                productManager.updateTotal();
+            }
+            //số lượng sản phẩm
+            updateTotal() {
+                if (this.listProducts.length > 0) {
+                    document.getElementById("totalProduct").innerText = this.listProducts.length+ " products";
+                } else {
+                    document.getElementById("totalProduct").innerText = "No product to display";
+                }
+            }
+        }
+        let productManager = new ProductManager();
+        // productManager.displayAllProduct();
+    </script>
+    </html>
