@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Chuẩn hóa xâu ký tự</title>
 </head>
 <body>
+<script>
+    function normalizeString(s) {
+        let words = [];
+        let word = "";
+        // Duyệt qua từng ký tự
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] !== " ") {
+                word += s[i]; // Thêm ký tự vào từ
+            } else if (word.length > 0) {
+                words.push(word); // Thêm từ vào danh sách nếu có từ đang xây dựng
+                word = ""; // Reset từ
+            }
+        }
+        if (word.length > 0) {
+            words.push(word); // Thêm từ cuối cùng nếu có
+        }
+        // Viết hoa chữ cái đầu, còn lại in thường
+        return words.map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+    }
+    // Hàm tìm từ dài nhất
+    function findLongestWord(s) {
+        let words = s.split(" "); // Tách thành mảng từ
+        let longestWord = "";
 
+        for (let word of words) {
+            if (word.length > longestWord.length) {
+                longestWord = word;
+            }
+        }
+
+        return longestWord;
+    }
+
+    // Test
+    let str = prompt("Nhập vào một chuỗi:");
+    let normalizedStr = normalizeString(str);
+    let longestWord = findLongestWord(normalizedStr);
+
+    console.log("Chuỗi ban đầu:", str);
+    console.log("Chuỗi sau chuẩn hóa:", normalizedStr);
+    console.log("Từ dài nhất:", longestWord);
+
+</script>
 </body>
 </html>

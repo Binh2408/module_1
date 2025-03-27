@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra chuỗi có phải định dạng email không ?</title>
+</head>
+<body>
+<!--Bài 1: Viết một hàm kiểm tra một chuỗi. Kiểm trả xem chuối đó có phải định dạng là một email hay không?  xxxxxx@yyy.zzz-->
+<!--+ Một chuỗi là một email nếu thoả mãn điều kiện:-->
+<!-- -	Có ít nhất 1 @-->
+<!-- -	Độ dài email ít nhất 6 ký tự và (x là các ký tự chữ hoặc số, bắt đầu không được là số)-->
+<!-- -	yyy,zzz: là các ký tự chữ in thường và tối thiểu là 3 và tối đa là 10-->
+<!--	Lưu ý không được sử dụng regex-->
+
+<script>
+    function isAllUpperCase(str) {
+        return str === str.toUpperCase();
+    }
+
+    function isAllLowerCase(str) {
+        return str === str.toLowerCase();
+    }
+    let email = prompt("Nhập vào email có dạng xxx@yyy.zzz");
+    //kiểm tra kí tự "@"
+    function kiemTraKiTuAcong(email) {
+        for (let i = 0; i < email.length; i++) {
+            if (email[i] === '@') {
+                return true;
+            }
+        }
+    }
+    console.log(kiemTraKiTuAcong(email));
+    //kim tra ký tự trước chuỗi
+    function kiemTraTruocAcong(email) {
+        let tachChuoi = email.split('@');
+        let chuoiTruocAcong = tachChuoi[0];
+        return !(!isNaN(chuoiTruocAcong[0]) || chuoiTruocAcong.length < 6);
+    }
+    console.log(kiemTraTruocAcong(email));
+    //kiểm tra ký tự sau chuỗi
+    function kiemTraSauAcong(email) {
+        let tachChuoi = email.split('@');
+        let chuoiSauAcong = tachChuoi[1].split(".");
+        let chuoiTruocDauCham = chuoiSauAcong[0];
+        let chuoiSauDauCham = chuoiSauAcong[1];
+        if (isAllLowerCase(chuoiTruocDauCham) && isAllLowerCase(chuoiSauDauCham)) {
+            if (chuoiTruocDauCham.length < 10 && chuoiTruocDauCham.length >= 3 && chuoiSauDauCham.length < 10 && chuoiSauDauCham.length >= 3) {
+                 return true;
+            }
+        }
+        return false;
+    }
+    if (kiemTraKiTuAcong(email) && kiemTraTruocAcong(email) && kiemTraSauAcong(email)) {
+        console.log("là một email");
+    } else {
+        console.log("Không phải là một email");
+    }
+</script>
+</body>
+</html>

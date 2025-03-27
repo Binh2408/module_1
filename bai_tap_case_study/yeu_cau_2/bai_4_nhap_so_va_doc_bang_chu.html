@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập một số và in ra màn hình bằng chữ</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập vào một chuỗi");
+    let arr = number.toString().split("");
+    console.log(arr);
+
+    function readingNumberToString(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            switch (arr[i]) {
+                case "0":
+                    result.push("Không");
+                    break;
+                case "1":
+                    result.push("Một");
+                    break;
+                case "2":
+                    result.push("Hai");
+                    break;
+                case "3":
+                    result.push("Ba");
+                    break;
+                case "4":
+                    result.push("Bốn");
+                    break;
+                case "5":
+                    result.push("Năm");
+                    break;
+                case "6":
+                    result.push("Sáu");
+                    break;
+                case "7":
+                    result.push("Bảy");
+                    break;
+                case "8":
+                    result.push("Tám");
+                    break;
+                case "9":
+                    result.push("Chín");
+                    break;
+            }
+        }
+        return result.join(",");
+    }
+
+    console.log(readingNumberToString(arr));
+</script>
+</body>
+</html>

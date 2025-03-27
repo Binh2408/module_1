@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm chỉ số của phân số lớn nhất</title>
+</head>
+<body>
+<script>
+    let number1 = +prompt("Nhập độ dài mảng 1");
+    while (number1 < 0) {
+        number1 = +prompt("Nhập lại");
+    }
+    let numerators = new Array(number1);
+    for (let i = 0; i < numerators.length; i++) {
+        numerators[i] = +prompt(`Nhập giá trị thứ ${i + 1} của mảng 1`);
+    }
+
+    let number2 = +prompt("Nhập độ dài mảng 2");
+    while (number2 < 0) {
+        number2 += +prompt("Nhập lại");
+    }
+    let denominators  = new Array(number2);
+    for (let i = 0; i < denominators.length; i++) {
+        denominators[i] = +prompt(`Nhập giá trị thứ ${i + 1} của mảng 2`);
+    }
+    function maxFraction(numerators, denominators) {
+        let arr = [];
+        for (let i = 0; i < denominators.length; i++) {
+            arr.push(numerators[i]/denominators[i]);
+        }
+        let max = arr[0];
+        for (let k = 0; k < arr.length; k++) {
+            if (max < arr[k]) {
+                max = arr[k];
+            }
+        }
+        return arr.indexOf(max);
+    }
+    console.log(maxFraction(numerators, denominators));
+</script>
+</body>
+</html>

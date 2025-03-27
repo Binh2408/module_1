@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thiết kế MENU</title>
+</head>
+<body>
+<script>
+    let drinks = ["Cafe", "Cam vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa"];
+    let price = [10000, 20000, 15000, 25000, 5000, 30000];
+    let quantities = new Array(drinks.length).fill(0);
+    let selectedDrinks = []; // Lưu món đã chọn theo thứ tự
+    function display(drinks, price) {
+        let menuDrinks = "";
+        for (let i = 0; i < drinks.length; i++) {
+            menuDrinks += `${i + 1}.${drinks[i]}: ${price[i]}đ\n`;
+        }
+        menuDrinks += `7.Thoát gọi món.`
+        return menuDrinks;
+    }
+
+    let total = 0;
+    let number = 0;
+    do {
+        let bill = "";
+        for (let i = 0; i < drinks.length; i++) {
+            if (quantities[i] > 0) {
+                bill += `${i+1}.${drinks[i]} x ${quantities[i]}: ${price[i] * quantities[i]}đ\n`;
+            }
+        }
+        number = +prompt(`-----------------Danh sách đồ uống-------------
+    \n${display(drinks, price)}\n-------------------Danh sách đồ uống đã chọn-----------------------\n${bill}
+    $Tổng tiền:${total}đ`)
+        switch (number) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                let index = number - 1;
+                let quantity = +prompt(`Nhập số lượng vào${drinks[index]}`);
+                if (quantity > 0) {
+                    if (quantities[index] === 0) {
+                        selectedDrinks.push(index); // Chỉ thêm món mới vào danh sách khi chưa có
+                    }
+                    quantities[index] += quantity;
+                    total += price[index] * quantity;
+                }
+                break;
+            case 7:
+                let ketThuc = window.confirm("Bạn có muốn kết thúc gọi món?");
+                if (ketThuc === true) {
+                    alert(`${bill}\n Tổng tiền:${total}đ`);
+                    break;
+                }
+        }
+
+    } while (number !== 7)
+</script>
+</body>
+</html>

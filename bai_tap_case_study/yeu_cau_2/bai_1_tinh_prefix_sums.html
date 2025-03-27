@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính prefix sums</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài");
+    while (number < 0) {
+        number = prompt("NHập lại");
+    }
+    let arr = new Array(number);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`Nhập giá trị thứ ${i + 1}`);
+    }
+    console.log(arr);
+
+    function prefixSums(arr) {
+        let arr2 = [];
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            arr2.push(sum);
+        }
+        return arr2;
+    }
+
+    console.log(prefixSums(arr));
+
+</script>
+</body>
+</html>

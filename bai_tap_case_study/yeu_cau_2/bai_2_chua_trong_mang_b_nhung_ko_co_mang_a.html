@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm các phần tử xuất hiện trong mảng B nhưng lại không xuất hiện trong mảng A </title>
+</head>
+<body>
+<script>
+    let number1 = +prompt("Nhập độ dài mảng 1");
+    while (number1 < 0) {
+        number1 = +prompt("Nhập lại");
+    }
+    let arr1 = new Array(number1);
+    for (let i = 0; i < arr1.length; i++) {
+        arr1[i] = +prompt(`Nhập giá trị thứ ${i+1} của mảng 1`);
+    }
+    let number2 = +prompt("Nhập độ dài mảng 2");
+
+    while (number2 < 0) {
+        number2 += +prompt("Nhập lại");
+    }
+    let arr2 = new Array(number2);
+    for (let i = 0; i < arr2.length; i++) {
+        arr2[i] = +prompt(`Nhập giá trị thứ ${i+1} của mảng 2`);
+    }
+    console.log(arr1);
+    console.log(arr2);
+    function missingValue(arr1,arr2) {
+        let result = [];
+        for (let i = 0; i < arr2.length; i++) {
+            if (!arr1.includes(arr2[i]) && !result.includes(arr2[i])) {
+                result.push(arr2[i]);
+            }
+        }
+        return result;
+    }
+
+    console.log(missingValue(arr1,arr2));
+
+</script>
+</body>
+</html>

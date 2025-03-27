@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống đánh giá xếp hạng khách hàng</title>
+</head>
+<body>
+<script>
+    class CustomerRank {
+        constructor() {
+            this.rank = "";
+            this.discount = "";
+            this.freeShipping = false;
+            this.gift = false;
+        }
+        getCustomerRank(spentAmount) {
+            if (spentAmount < 100) {
+                this.rank = "Bronze";
+                this.discount = "Không có ưu đãi";
+                return console.log(`Xếp hạng: ${this.rank}\n${this.discount}`);
+            } else if (spentAmount >= 100 && spentAmount < 500) {
+                this.rank = "Silver";
+                this.discount = "5%";
+                return console.log(`Xếp hạng: ${this.rank}\nGiảm ${this.discount} trên đơn hàng tiếp theo`);
+            } else if (spentAmount >=500 && spentAmount < 1000) {
+                this.rank = "Gold";
+                this.discount = "10%";
+                this.freeShipping = true;
+                if (this.freeShipping === true) {
+                    return console.log(`Xếp hạng: ${this.rank}\nGiảm ${this.discount} và miễn phí giao hàng`);
+                }
+            } else {
+                this.rank = "Platinum";
+                this.discount = "20%";
+                this.freeShipping = true;
+                this.gift = true;
+                if(this.freeShipping === true && this.gift === true) {
+                    return console.log(`Xếp hạng: ${this.rank}\n Giảm ${this.discount},miễn phí giao hàng,quà tặng VIP`);
+                }
+            }
+        }
+    }
+    let number = +prompt("Nhập vào số tiền đã chi tiêu");
+    let customer = new CustomerRank();
+    customer.getCustomerRank(number);
+
+</script>
+</body>
+</html>
