@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<!--Câu 4: Tạo một lớp Máy tính  có:-->
+<!-- - Thuộc tính:-->
+<!--+ Mã máy (string)-->
+<!--+ Tên máy(string)-->
+<!--+ Tên Hãng sản xuất (string)-->
+<!--+ Giá bán (number).-->
+<!-- - Các phương thức getter và setter cho các thuộc tính-->
+<!-- - Phương thức  toString() : phương thức lấy các thông tin của đối tượng.-->
+<!-- -Yêu cầu: Viết chương trình quản lý  Máy tính    với các chức năng sau;-->
+<!--+ Thêm mới 1 máy tính-->
+<!--+ Hiển thị được danh sách máy tính-->
+<body>
+<div>
+    <h1>Quản lý máy tính</h1>
+    <input type="text" placeholder="Nhập mã máy" id="maMay"><br><br>
+    <input type="text" placeholder="Nhập tên máy" id="tenMay"><br><br>
+    <input type="text" placeholder="Nhập tên hãng sản xuất" id="hangSanXuat"><br><br>
+    <input type="text" placeholder="Nhập giá bán" id="giaBan"><br><br>
+    <button style="width: 170px;" onclick="quanlymaytinh.themMoi()">Thêm</button><br><br>
+</div>
+<div>
+    <p id="display"></p>
+</div>
+<script>
+    class MayTinh {
+        constructor(maMay, tenMay, tenHangSanXuat, giaBan) {
+            this.maMay = maMay;
+            this.tenMay = tenMay;
+            this.tenHangSanXuat = tenHangSanXuat;
+            this.giaBan = giaBan;
+        }
+
+        getMamay() {
+            return this.maMay;
+        }
+
+        setMamay(maMay) {
+            this.maMay = maMay;
+        }
+
+        getTenMay() {
+            return this.tenMay;
+        }
+
+        setTenMay(tenMay) {
+            this.tenMay = tenMay;
+        }
+
+        getTenHangSanXuat() {
+            return this.tenHangSanXuat;
+        }
+
+        setTenHangSanXuat(tenHangSanXuat) {
+            this.tenHangSanXuat = tenHangSanXuat;
+        }
+
+        getGiaBan() {
+            return this.giaBan;
+        }
+
+        setGiaBan(giaBan) {
+            this.giaBan = giaBan;
+        }
+
+        toString() {
+            return `${this.getMamay()}\n${this.getTenMay()}\n${this.getTenHangSanXuat()}\n${this.getGiaBan()}`;
+        }
+    }
+
+    class quanLyMayTinh {
+        constructor() {
+            this.danhSachMayTinh = [];
+        }
+        getDanhSachMayTinh() {
+            return this.danhSachMayTinh;
+        }
+        setDanhSachMayTinh(danhSachMayTinh) {
+            this.danhSachMayTinh = danhSachMayTinh;
+        }
+
+        //hiển thị
+        hienThiDanhSach() {
+            let tableString = "<table border='1' style='width: 50%; border-collapse: collapse;'>" +
+                "<tr><th>Mã máy</th><th>Tên Máy</th><th>Tên hãng sản xuất</th><th>Giá bán</th></tr>";
+
+            for (let i = 0; i < this.danhSachMayTinh.length; i++) {
+                tableString += "<tr>";
+                tableString += "<td>" + this.danhSachMayTinh[i].getMamay() + "</td>";
+                tableString += "<td>" + this.danhSachMayTinh[i].getTenMay() + "</td>";
+                tableString += "<td>" + this.danhSachMayTinh[i].getTenHangSanXuat() + "</td>";
+                tableString += "<td>" + this.danhSachMayTinh[i].getGiaBan() + "$" + "</td>";
+                tableString += "</tr>";
+            }
+            tableString += "</table>";
+            document.getElementById("display").innerHTML = tableString;
+        }
+        //thêm mới
+        themMoi() {
+            let maMay = document.getElementById("maMay").value.trim();
+            let tenMay = document.getElementById("tenMay").value.trim();
+            let tenHangSanXuat = document.getElementById("hangSanXuat").value.trim();
+            let giaBan = document.getElementById("giaBan").value.trim();
+            if (maMay.trim() !== "" && tenMay.trim() !== "" && tenHangSanXuat.trim() !== "" && giaBan.trim() !== "") {
+                let maytinh = new MayTinh(maMay, tenMay, tenHangSanXuat, giaBan);
+                this.danhSachMayTinh.push(maytinh);
+                quanlymaytinh.hienThiDanhSach();
+                document.getElementById("maMay").value = "";
+                document.getElementById("tenMay").value = "";
+                document.getElementById("hangSanXuat").value = "";
+                document.getElementById("giaBan").value = "";
+            } else {
+                alert("Vui lòng nhập lại");
+            }
+        }
+    }
+
+    let quanlymaytinh = new quanLyMayTinh();
+</script>
+</body>
+</html>

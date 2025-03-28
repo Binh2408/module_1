@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm chuỗi con liên tiếp tăng dần</title>
+</head>
+<body>
+<!--Bài 2: Cho xâu kí tự. Hãy tìm ra chuỗi con liên tiếp tăng dần có độ dài lớn nhất-->
+<!--Ví dụ: s = "abefaefghedcb", thì kết quả getMaxChildString (s)   “aefgh”-->
+<!--⇨	aefgh : là chuỗi con liên tiếp trong chuỗi cha có độ dài lớp nhất.-->
+
+<script>
+    let str = prompt("Nhập vào một chuỗi");
+    console.log(str);
+
+    function getMaxChildString(s) {
+        let maxSubstring = "";
+        let currentSubstring = s[0];
+        for (let i = 1; i < s.length; i++) {
+            if (s[i] > s[i - 1]) {
+                currentSubstring += s[i];
+            } else {
+                if (currentSubstring.length > maxSubstring.length) {
+                    maxSubstring = currentSubstring;
+                }
+                currentSubstring = s[i];
+
+            }
+        }
+        // Kiểm tra lần cuối cùng sau khi thoát vòng lặp
+        if (currentSubstring.length > maxSubstring.length) {
+            maxSubstring = currentSubstring;
+        }
+        return maxSubstring;
+    }
+
+    console.log(getMaxChildString(str));
+
+</script>
+</body>
+</html>

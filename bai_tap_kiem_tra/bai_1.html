@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài cho mảng");
+    while (number < 0 && number > 50) {
+        number = +prompt("Nhập lại độ dài bé hơn hoặc bằng 50");
+    }
+    let arr = new Array(number);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`Nhập giá trị vị trí thứ ${i+1}`);
+    }
+    console.log(arr);
+    let totalOdd = 0;
+    let totalEven = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (i % 2 === 0) {
+            totalEven = totalEven + arr[i];
+        }  else {
+            totalOdd = totalOdd + arr[i];
+        }
+    }
+    let result = totalEven - totalOdd;
+    console.log("Kết quả: " + result);
+</script>
+</body>
+</html>

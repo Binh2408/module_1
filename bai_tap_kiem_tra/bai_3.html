@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài cho mảng");
+    while (number < 0) {
+        number = +prompt("Nhập lại độ dài");
+    }
+    let arr = new Array(number);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt(`Nhập giá trị vị trí thứ ${i+1}`);
+    }
+    console.log(arr);
+
+    function isFibonacci(number) {
+        let fib1 = 0;
+        let fib2 = 1;
+        let temp;
+        if (number === 0 || number === 1) {
+            return true;
+        }
+        for (let i = 0; i < number; i++) {
+            temp = fib1+fib2;
+            fib1 = fib2;
+            fib2 = temp;
+            if (number === temp) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function findFibonacci(arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (isFibonacci(arr[i])) {
+                newArr.push(arr[i]);
+            }
+        }
+        newArr.sort((a,b) => a-b);
+        return console.log(newArr);
+    }
+    findFibonacci(arr);
+</script>
+</body>
+</html>
