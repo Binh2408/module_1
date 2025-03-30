@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra nhóm các chuỗi có cùng ký tự</title>
+</head>
+<!--Bài 3: Viết 1 hàm có tham số là một mảng chuỗi. Nhóm các chuỗi có cùng ký tự-->
+<!--Cho một danh sách các chuỗi, hãy nhóm các chuỗi có cùng tập hợp ký tự lại với nhau.-->
+<!--Ví dụ:-->
+<!--Input: ["eat", "tea", "tan", "ate", "nat", "bat"]-->
+<!--Output: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]-->
+<!--Input: ["hello", "world", "dlrow", "ehllo"]-->
+<!--Output: [["hello", "ehllo"], ["world", "dlrow"]]-->
+<body>
+<script>
+    let number = +prompt("Nhập vào độ dài của mảng");
+    while (number < 0 || isNaN(number) || !Number.isInteger(number)) {
+        number = +prompt("Nhập lại độ dài của mảng(phải là số nguyên dương)");
+    }
+    let arrStr = new Array(number);
+    for (let i = 0; i < arrStr.length; i++) {
+        let str = prompt(`Nhập vào một chuỗi ở vị trí thứ ${i}`);
+        while (str === "" || !isNaN(str)) {
+            str = prompt(`Nhập lại chuỗi vị trí thứ ${i}`);
+        }
+        arrStr[i] = str;
+    }
+    console.log(arrStr);
+
+    function findSameStr(arrStr) {
+        let newArr = {};
+        for (let i = 0; i < arrStr.length; i++) {
+            let sortedStr = arrStr[i].split('').sort().join('');
+            if(!newArr[sortedStr]){
+                newArr[sortedStr] = [];//tạo mảng mới
+            }
+            newArr[sortedStr].push(arrStr[i]);
+        }
+        //let result = Object.values(newArr); // Lấy mảng kết quả từ các nhóm
+        return newArr;
+    }
+
+    console.log(findSameStr(arrStr));
+</script>
+</body>
+</html>

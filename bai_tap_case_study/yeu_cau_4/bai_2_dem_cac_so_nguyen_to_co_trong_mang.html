@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số lượng số nguyên tố có trong mảng</title>
+</head>
+<body>
+<!--Bài 2: Viết hàm liệt kê các số nguyên tố trong mảng 2 chiều, đếm các số nguyên tố có trong mảng đó.-->
+<script>
+    let cols = +prompt("Nhập độ dài của cột");
+    let rows = +prompt("Nhập độ dài của dòng");
+    while (rows < 0 || cols < 0 || !Number.isInteger(rows) || !Number.isInteger(cols)) {
+        cols = +prompt("Nhập lại độ dài của cột");
+        rows = +prompt("Nhập lại độ dài của dòng");
+    }
+    let matrix = new Array(rows);
+    for (let i = 0; i < rows; i++) {
+        matrix[i] = new Array(cols);
+    }
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            matrix[i][j] = +prompt(`Nhập vị trí ở hàng ${i} cột ${j}`);
+        }
+    }
+    console.log(matrix);
+    function checkIsPrime(number) {
+        if (number === 2) {
+            return true;
+        }
+        if (number < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function countPrime(arr) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (checkIsPrime(arr[i][j])) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    console.log(countPrime(matrix));
+</script>
+</body>
+</html>

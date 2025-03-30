@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lớn nhất, nhỏ nhất trong mảng 2 chiều</title>
+</head>
+<!--Bài 3: Viết hàm tìm giá trị lớn nhất, nhỏ nhất trong mảng 2 chiều-->
+<body>
+<script>
+    let cols = +prompt("Nhập độ dài của cột");
+    let rows = +prompt("Nhập độ dài của dòng");
+    while (rows < 0 || cols < 0 || !Number.isInteger(rows) || !Number.isInteger(cols)) {
+        cols = +prompt("Nhập lại độ dài của cột");
+        rows = +prompt("Nhập lại độ dài của dòng");
+    }
+    let matrix = new Array(rows);
+    for (let i = 0; i < rows; i++) {
+        matrix[i] = new Array(cols);
+    }
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            matrix[i][j] = +prompt(`Nhập vị trí ở hàng ${i} cột ${j}`);
+        }
+    }
+    console.log(matrix);
+    function findMinMaxInMatrix(arr) {
+        let max = arr[0][0];
+        let min = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
+                }
+                if (arr[i][j] < min) {
+                    min = arr[i][j];
+                }
+            }
+        }
+        return `Giá trị lớn nhất là: ${max} và giá trị nhỏ nhất là: ${min}`;
+    }
+
+    console.log(findMinMaxInMatrix(matrix));
+</script>
+</body>
+</html>
